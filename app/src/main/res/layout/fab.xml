@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.FloatingActionButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/floatingActionButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom|end"
+    android:layout_marginRight="@dimen/fab_margin"
+    android:layout_marginBottom="@dimen/dp_33"
+    app:elevation="@dimen/dp_10"
+    app:rippleColor="@color/color_ef5350"
+    app:pressedTranslationZ="@dimen/dp_10"
+    app:borderWidth="@dimen/dp_0"
+    android:src="@mipmap/ic_refresh_light" />

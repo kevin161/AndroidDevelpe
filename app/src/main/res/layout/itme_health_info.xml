@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutContent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_12"
+    android:layout_marginRight="@dimen/dp_12"
+    android:layout_marginTop="@dimen/dp_8"
+    android:foreground="?attr/selectableItemBackground"
+    android:stateListAnimator="@drawable/translationz_anim"
+    app:cardCornerRadius="@dimen/dp_10"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPaddingLeft="@dimen/dp_12"
+    app:contentPaddingRight="@dimen/dp_12"
+    app:contentPaddingTop="@dimen/dp_12">
+
+    <RelativeLayout
+        android:id="@+id/layoutItemBg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtTopic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="@dimen/dp_65"
+            android:layout_height="@dimen/dp_65"
+            android:layout_alignParentRight="true"
+            android:transitionName="sharetrans"
+            android:scaleType="fitXY"
+            android:src="@mipmap/zhihu" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_12"
+            android:layout_toLeftOf="@+id/img"
+            android:lines="3"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/sp_15" />
+
+        <TextView
+            android:id="@+id/txtKeyWords"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTitle"
+            android:textColor="@color/color_cacaca"
+            android:textSize="@dimen/sp_12" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

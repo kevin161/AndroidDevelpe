@@ -1,0 +1,161 @@
+package com.gyz.androiddevelope.activity.custom;
+
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.widget.ImageView;
+
+import com.gyz.androiddevelope.R;
+import com.gyz.androiddevelope.activity.HomeActivity;
+import com.gyz.androiddevelope.base.BaseActivity;
+import com.gyz.androiddevelope.engine.AppContants;
+import com.gyz.androiddevelope.net.retrofit.ReUtil;
+import com.gyz.androiddevelope.net.retrofit.RxUtil;
+import com.gyz.androiddevelope.response_bean.LoadImageBean;
+import com.gyz.androiddevelope.service.LocalService;
+import com.gyz.androiddevelope.service.RemoteService;
+import com.gyz.androiddevelope.util.FileUtil;
+import com.gyz.androiddevelope.util.SPUtils;
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import rx.Observable;
+import rx.Subscriber;
+import rx.functions.Func1;
+
+/**
+ * @author: guoyazhou
+ * @date: 2016-01-26 11:46
+ */
+public class LoadActivity extends BaseActivity {
+    private static final String TAG = "LoadActivity";
+
+    @Bind(R.id.layoutStartImg)
+    ImageView layoutStartImg;
+    File file;
+
+    @Override
+    protected void initVariables() {
+        Intent intent = getIntent();
+        if (intent.getExtras() != null) {
+            String data = intent.getDataString();
+//            LogUtils.e(TAG,"DATA===+++++++++++++++++++++++++++"+data+"      getEncodedAuthority="+ intent.getData().getEncodedAuthority()
+//            +"    getAuthority="+getIntent().getData().getAuthority()
+//                    +"    getEncodedFragment="+getIntent().getData().getEncodedFragment()
+//            +"     getEncodedPath="+getIntent().getData().getEncodedPath()+"     getEncodedQuery="+getIntent().getData().getEncodedQuery()
+//            +"     getEncodedSchemeSpecificPart="+getIntent().getData().getEncodedSchemeSpecificPart()
+//            +"    getEncodedUserInfo="+getIntent().getData().getEncodedUserInfo()+"    getFragment="+getIntent().getData().getFragment()
+//            +"    getHost="+getIntent().getData().getHost()+"    getScheme="+getIntent().getData().getScheme());
+
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        setIntent(intent);
+    }
+
+    @Override
+    protected void initViews(Bundle savedInstanceState) {
+
+        View view = View.inflate(this, R.layout.activity_load, null);
+        setContentView(view);
+        ButterKnife.bind(this);
+        //禁用左划手势
+        getSwipeBackLayout().setEnableGesture(false);
+
+        file = new File(AppContants.CACHE_PATH, "start.jpg");
+
+        if (file.exists()) {
+            layoutStartImg.setImageBitmap(BitmapFactory.decodeFile(file.getAbsolutePath()));
+        } else {
+            layoutStartImg.setImageResource(R.mipmap.ic_load);
+        }
+
+
+        RxUtil.subscribeAll(new Func1<String, Observable<LoadImageBean>>() {
+            @Override
+            public Observable<LoadImageBean> call(String s) {
+                return ReUtil.getApiManager(AppContants.ZHIHU_HTTP).getLoadImg();
+            }
+        }, new Subscriber<LoadImageBean>() {
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                e.printStackTrace();
+                startActivity();
+            }
+
+            @Override
+            public void onNext(final LoadImageBean loadImageBean) {
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            FileUtil.saveMyBitmap(file, Picasso.with(getBaseContext()).load(loadImageBean.img).get());
+//                                    FileUtil.saveImgFromNet(loadImageBean.img,file);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }).start();
+            }
+        });
+
+
+        ScaleAnimation animation = new ScaleAnimation(1.0f, 1.4f, 1.0f, 1.4f,
+                Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        animation.setDuration(3000);
+        animation.setFillAfter(true);
+        view.startAnimation(animation);
+
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                startActivity();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+    }
+
+    @Override
+    protected void loadData() {
+        startService(new Intent(this, LocalService.class));
+        startService(new Intent(this, RemoteService.class));
+
+//        BaseInput baseInput = BeanTest.buildInput(23,34,"tom");
+//        Map<String,Object> map = baseInput.getParams();
+//        LogUtil.e(TAG,map.get("uname"));
+    }
+
+    private void startActivity() {
+        boolean isNotFirst = (boolean) (SPUtils.get(getBaseContext(), AppContants.NOT_FIRST_LOAD, false));
+        if (isNotFirst) {
+            startActivity(new Intent(getBaseContext(), HomeActivity.class));
+        } else {
+            startActivity(new Intent(getBaseContext(), GuideActivity.class));
+            SPUtils.put(getApplication(), AppContants.NOT_FIRST_LOAD, true);
+        }
+        finish();
+    }
+}

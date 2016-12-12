@@ -1,0 +1,29 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <!--//将底部navigationbar设为透明-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>-->
+        <!--设置navigationBarColor-->
+        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
+        <!-- 允许使用transitions -->
+        <!--<item name="android:windowContentTransitions">true</item>-->
+    </style>
+
+    <style name="AppTheme.NoActionBar.Load" parent="AppTheme.NoActionBar">
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <!-- 单独为MainActivity设置不透明，解决SwipeBackLayout返回时显示桌面而不是上一层的Bug -->
+    <style name="AppThemeNotTranslucent" parent="AppTheme.NoActionBar">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+    <!--//转场动画-->
+    <style name="AppTransform" parent="AppTheme.NoActionBar">
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+</resources>

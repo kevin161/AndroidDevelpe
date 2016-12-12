@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gyz.androiddevelope.view.SlidingItemMenuLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#f00"
+        android:text="从小习武，练就一身本领" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:background="#0f0"
+        android:text="删除" />
+
+</com.gyz.androiddevelope.view.SlidingItemMenuLayout>

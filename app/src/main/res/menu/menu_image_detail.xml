@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_like"
+        android:checked="true"
+        android:icon="@drawable/ic_favorite_white_24dp"
+        android:title="@string/action_bar_like"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_download"
+        android:icon="@drawable/ic_move_to_inbox_white_24dp"
+        android:title="@string/action_bar_download"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_gather"
+        android:icon="@drawable/ic_camera_white_24dp"
+        android:title="@string/action_bar_gather"
+        app:showAsAction="ifRoom" />
+</menu>

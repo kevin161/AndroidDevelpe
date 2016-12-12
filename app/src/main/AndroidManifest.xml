@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gyz.androiddevelope">
+
+    <!-- 往sdcard中写入数据的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- ###################声明SDK使用的相关权限###################### -->
+    <!-- 检测网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 获取mac地址作为用户的备用唯一标识 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 获取用户手机的IMEI，用来唯一的标识用户 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 允许应用程序联网，以便向我们的服务器端发送数据 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- QQ、QQ空间所需权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SET_DEBUG_APP" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+
+    <application
+        android:name=".base.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/zhihu"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".activity.custom.LoadActivity"
+            android:label="@string/title_activity_load"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="androiddevelope" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.custom.CircleActivity" />
+        <activity android:name=".activity.custom.GuideActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".activity.custom.ShowInfoActivity"
+            android:label="@string/title_activity_do_sth" />
+        <activity android:name=".activity.huaban.LoginActivity" />
+        <activity android:name=".activity.huaban.UserActivity" />
+        <activity android:name=".activity.huaban.HuaBanBoardActivity" />
+        <activity
+            android:name=".activity.custom.WaveActivity"
+            android:label="WaveActivity" />
+        <activity android:name=".activity.custom.CalenderActivity" />
+        <activity android:name=".activity.custom.McalendarActivity" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:label="@string/title_home_page"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeNotTranslucent" />
+        <activity android:name=".activity.zhihu.NewsDetailActivity" />
+        <activity
+            android:name=".activity.custom.NoBoringActionBarActivity"
+            android:theme="@style/TransparentTheme" />
+        <activity android:name=".activity.tngou.AlbumDetailActivity" />
+        <activity android:name="com.gyz.androiddevelope.net.volley.VolleyActivity" />
+        <activity android:name=".activity.custom.SettingsActivity" />
+        <activity android:name=".activity.custom.QQSlidingActivity" />
+        <activity android:name=".activity.custom.SlidingItemActivity" />
+        <activity android:name=".activity.custom.MountainViewActivity" />
+        <activity android:name=".activity.custom.FlyViewActivity" />
+        <activity android:name=".activity.custom.NearBySearchActivity" />
+        <activity android:name=".activity.custom.MyListViewActivity" />
+        <activity android:name=".activity.custom.MyProgressBarActivity" />
+        <activity android:name=".activity.custom.Transform3DActivity" />
+        <activity android:name=".activity.custom.ConcatMatrixActivity" />
+        <activity android:name=".activity.custom.Win10ProgressActivity" />
+        <activity android:name=".activity.custom.FlickerProgressActivity" />
+        <activity android:name=".activity.custom.MyWebActivity" />
+        <activity android:name=".activity.custom.ToolbarTestActivity" />
+        <activity android:name=".activity.custom.SearchViewActivity" />
+        <activity android:name=".activity.custom.ImageCrapActivity" />
+        <activity android:name=".activity.custom.DashBoardActivity" />
+        <activity android:name=".activity.custom.GradientActivity" />
+        <activity android:name=".activity.custom.DisScrollActivity" />
+        <activity android:name=".view.parallax.SplashActivity" />
+        <activity android:name=".activity.custom.MyRecyclerActivity" />
+        <activity android:name=".activity.custom.TransformActivity"
+            android:theme="@style/AppTransform"/>
+        <activity android:name=".activity.custom.TransformSecondActivity"
+            android:theme="@style/AppTransform"/>
+        <activity android:name=".activity.huaban.HuabanSearchActivity" />
+        <activity
+            android:name=".activity.huaban.ImageDetailActivity"
+            android:theme="@style/AppTransform"/>
+        <activity
+            android:name="com.tencent.bugly.beta.ui.BetaActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="572abe00e0f55a35d900051c" />
+
+        <service android:name=".service.LocalService" />
+        <service
+            android:name=".service.RemoteService"
+            android:process=".remoteservice" />
+        <service
+            android:name=".service.DownloadService"
+            android:exported="false" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.gyz.androiddevelope.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+    </application>
+
+</manifest>

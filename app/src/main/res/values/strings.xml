@@ -1,0 +1,102 @@
+<resources>
+    <string name="app_name">AndroidDevelope</string>
+    <string name="str_loading">正在加载中</string>
+    <string name="title_activity_do_sth">DoSthActivity</string>
+    <string name="title_activity_load">weico</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="noboringactionbar_title">Beautiful picture</string>
+    <string name="loreum">Quam ob rem vita quidem talis fuit vel fortuna vel gloria, ut nihil posset accedere, moriendi autem sensum celeritas abstulit; quo de genere mortis difficile dictu est; quid homines suspicentur, videtis; hoc vere tamen licet dicere, P. Scipioni ex multis diebus, quos in vita celeberrimos laetissimosque viderit, illum diem clarissimum fuisse, cum senatu dimisso domum reductus ad vesperum est a patribus conscriptis, populo Romano, sociis et Latinis, pridie quam excessit e vita, ut ex tam alto dignitatis gradu ad superos videatur deos potius quam ad inferos pervenisse.  Quam ob rem id primum videamus, si placet, quatenus amor in amicitia progredi debeat. Numne, si Coriolanus habuit amicos, ferre contra patriam arma illi cum Coriolano debuerunt? num Vecellinum amici regnum adpetentem, num Maelium debuerunt iuvare?  Pandente itaque viam fatorum sorte tristissima, qua praestitutum erat eum vita et imperio spoliari, itineribus interiectis permutatione iumentorum emensis venit Petobionem oppidum Noricorum, ubi reseratae sunt insidiarum latebrae omnes, et Barbatio repente apparuit comes, qui sub eo domesticis praefuit, cum Apodemio agente in rebus milites ducens, quos beneficiis suis oppigneratos elegerat imperator certus nec praemiis nec miseratione ulla posse deflecti.  Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existimans factum aut cogitatum, insontium caedibus fecit victoriam luctuosam.  Nunc vero inanes flatus quorundam vile esse quicquid extra urbis pomerium nascitur aestimant praeter orbos et caelibes, nec credi potest qua obsequiorum diversitate coluntur homines sine liberis Romae.</string>
+
+
+    <string name="action_settings">Settings</string>
+    <string name="test">测试</string>
+    <string name="title_health_info">健康资讯</string>
+    <string name="title_home_page">首页</string>
+    <string name="exit_app">再按一次退出应用</string>
+    <string name="action_edit">编辑</string>
+    <string name="action_zan">点赞</string>
+    <string name="action_share">分享</string>
+    <string name="hello_world">hell world</string>
+    <string name="txt_place">…</string>
+    <string name="weibo">微博</string>
+    <string name="pic">美图欣赏</string>
+    <string name="title_tngou">美图欣赏</string>
+    <string name="title_zhihu">知乎日报</string>
+    <string name="add_pic">移动网络下加载图片</string>
+    <string name="card_title">测试Card的title应该是很长的文本</string>
+    <string name="prompt_username">邮箱</string>
+    <string name="prompt_password">密码</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_register">注册</string>
+    <string name="null_info">输入信息不完整</string>
+    <string name="login_success">登录成功</string>
+
+
+    //图片的后缀 则同一个图片key 得到不同的结果
+    <string name="image_suffix_general">_fw320sf</string>//普通浏览的图
+    <string name="image_suffix_big">_fw658</string>//大图
+    <string name="image_suffix_small">_sq75sf</string>//小图
+    <string name="url_image_general">http://img.hb.aicdn.com/%s_fw320sf</string>
+    <string name="url_image_big">http://img.hb.aicdn.com/%s_fw658</string>
+    <string name="url_image_small">http://img.hb.aicdn.com/%s_sq75sf</string>
+    <string name="text_fans_attention">%1$d粉丝 %2$d关注</string>
+
+    <string name="title_fragment_board">画板</string>
+    <string name="title_fragment_gather">采集</string>
+    <string name="title_fragment_like">喜欢</string>
+    <string name="action_bar_like">Like</string>
+    <string name="action_bar_download">下载</string>
+    <string name="action_bar_gather">收集</string>
+    <string name="text_to">采集到</string>
+    <string name="text_recommend">推荐</string>
+    <string name="txt_no_describe">暂无图片描述</string>
+    <string name="text_like_number">%d 喜欢</string>
+    <string name="text_gather_number">%d 采集</string>
+    <string name="text_attention_number">%d 关注</string>
+    <string name="is_like">喜欢</string>
+    <string name="not_like">取消喜欢</string>
+    <string name="download_compelete">下载完成</string>
+    <string name="search">搜索</string>
+
+          <string name="star_data">
+            M 200.30535,69.729172
+            C 205.21044,69.729172 236.50709,141.52218 240.4754,144.40532
+            C 244.4437,147.28846 322.39411,154.86809 323.90987,159.53312
+            C 325.42562,164.19814 266.81761,216.14828 265.30186,220.81331
+            C 263.7861,225.47833 280.66544,301.9558 276.69714,304.83894
+            C 272.72883,307.72209 205.21044,268.03603 200.30534,268.03603
+            C 195.40025,268.03603 127.88185,307.72208 123.91355,304.83894
+            C 119.94524,301.9558 136.82459,225.47832 135.30883,220.8133
+            C 133.79307,216.14828 75.185066,164.19813 76.700824,159.53311
+            C 78.216581,154.86809 156.16699,147.28846 160.13529,144.40532
+            C 164.1036,141.52218 195.40025,69.729172 200.30535,69.729172 z
+    </string>
+
+    <string name="star_lollipop">
+            M 223.42,133.484
+            C 237.895,98.1973 280.378,100.58 295.49,133.484
+            C 302.176,148.044 293.576,165.914 270.253,183.357
+            C 264.16,187.914 268.606,245.136 268.606,248.852
+            C 268.606,256.589 268.606,295.171 268.606,302.907
+            C 268.606,322.848 268.606,329.725 268.606,339.649
+            C 268.606,347.385 255.048,349.681 255.048,339.649
+            C 255.048,331.913 255.361,310.637 255.048,302.907
+            C 254.579,291.371 255.048,256.788 255.048,249.052
+            C 255.048,238.561 254.706,187.75 248.302,183.489
+            C 221.536,165.677 218.848,144.628 223.42,133.484 z
+    </string>
+    <string name="bird_path">
+            M60.377,337.822
+            c30.33,19.236,66.308,30.368,104.875,30.368c108.349,0,196.18-87.841,196.18-196.18
+            c0-2.705-0.057-5.39-0.161-8.067c3.919-3.084,28.157-22.511,34.098-35c0,0-19.683,8.18-38.947,10.107
+            c-0.038,0-0.085,0.009-0.123,0.009c0,0,0.038-0.019,0.104-0.066c1.775-1.186,26.591-18.079,29.951-38.207
+            c0,0-13.922,7.431-33.415,13.932c-3.227,1.072-6.605,2.126-10.088,3.103c-12.565-13.41-30.425-21.78-50.25-21.78
+            c-38.027,0-68.841,30.805-68.841,68.803c0,5.362,0.617,10.581,1.784,15.592c-5.314-0.218-86.237-4.755-141.289-71.423
+            c0,0-32.902,44.917,19.607,91.105c0,0-15.962-0.636-29.733-8.864c0,0-5.058,54.416,54.407,68.329c0,0-11.701,4.432-30.368,1.272
+            c0,0,10.439,43.968,63.271,48.077c0,0-41.777,37.74-101.081,28.885L60.377,337.822z
+    </string>
+</resources>

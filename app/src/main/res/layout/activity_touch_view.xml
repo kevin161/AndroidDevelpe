@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#000"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.gyz.androiddevelope.view.LinearGradientTextView
+        android:layout_width="match_parent"
+        android:textSize="@dimen/sp_30"
+        android:textColor="@android:color/tertiary_text_light"
+        android:text="红塔山上的猫和爱新觉罗·李"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

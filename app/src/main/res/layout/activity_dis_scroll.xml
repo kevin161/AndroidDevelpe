@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gyz.androiddevelope.view.disscrollview.DisScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:discrollve="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.gyz.androiddevelope.view.disscrollview.DiscrollViewContent
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:background="@android:color/white"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:padding="25dp"
+            android:text="冯绍峰对着倪妮发誓说：‘’如果有一天我离开了你，我就把名字倒着念‘’。倪妮说：‘我也是’’！——尼玛，看着我也是醉了！"
+            android:textColor="@android:color/black"
+            android:textSize="25sp"
+            tools:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="#007788"
+            discrollve:discrollve_alpha="true" />
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="120dp"
+            android:src="@drawable/baggage"
+            discrollve:discrollve_alpha="true"
+            discrollve:discrollve_translation="fromLeft|fromBottom" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            discrollve:discrollve_fromBgColor="#ffff00"
+            discrollve:discrollve_toBgColor="#88EE66" />
+
+        <ImageView
+            android:layout_width="220dp"
+            android:layout_height="110dp"
+            android:layout_gravity="right"
+            android:src="@drawable/camera"
+            discrollve:discrollve_translation="fromRight" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="眼见范冰冰与李晨在一起了，孩子会取名李冰冰；李冰冰唯有嫁给范伟，生个孩子叫范冰冰，方能扳回一城。"
+            android:textSize="23sp"
+            discrollve:discrollve_alpha="true"
+            discrollve:discrollve_translation="fromBottom" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/sweet"
+            discrollve:discrollve_scaleX="true"
+            discrollve:discrollve_scaleY="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:src="@drawable/camera"
+            discrollve:discrollve_translation="fromLeft|fromBottom" />
+    </com.gyz.androiddevelope.view.disscrollview.DiscrollViewContent>
+</com.gyz.androiddevelope.view.disscrollview.DisScrollView>

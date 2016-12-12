@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="花瓣">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_send"
+                android:title="主页" />
+            <item
+                android:id="@+id/huaban_food"
+                android:icon="@drawable/ic_menu_send"
+                android:title="美食" />
+            <item
+                android:id="@+id/huaban_photo"
+                android:icon="@drawable/ic_menu_send"
+                android:title="摄影" />
+            <item
+                android:id="@+id/navTest"
+                android:icon="@drawable/ic_menu_send"
+                android:title="美女" />
+        </menu>
+    </item>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/title_zhihu" />
+        <item
+            android:id="@+id/nav_picshow"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/pic" />
+        <item
+            android:id="@+id/nav_test"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/test" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />
+    </group>
+
+</menu>
