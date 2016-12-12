@@ -50,8 +50,6 @@ public class BaseApplication extends Application {
 //        patchManager.init(appversion);//current version
 //        patchManager.loadPatch();
 
-        CacheManager.getInstance().initCacheDir();
-
         if (LeakCanary.isInAnalyzerProcess(this)){
             return;
         }
