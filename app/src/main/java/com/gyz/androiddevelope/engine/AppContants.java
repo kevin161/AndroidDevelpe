@@ -116,4 +116,6 @@ public class AppContants {
     public static final String BOARDTILTARRAY="boardTitleArray";
     public static final String BOARDIDARRAY="boardIdArray";
 
+    public static final String DEX_DIR = "odex";
+
 }

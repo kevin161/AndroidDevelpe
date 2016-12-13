@@ -11,7 +11,7 @@ import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.activity.huaban.HuabanSearchActivity;
 import com.gyz.androiddevelope.activity.huaban.ImageDetailActivity;
 import com.gyz.androiddevelope.adapter.HuabanRecyclerAdapter;
-import com.gyz.androiddevelope.base.BaseRecyclerAdapter;
+import com.gyz.androiddevelope.adapter.BaseRecyclerAdapter;
 import com.gyz.androiddevelope.base.BaseRecyclerFragment;
 import com.gyz.androiddevelope.engine.AppContants;
 import com.gyz.androiddevelope.listener.OnSwipeRefreshFragmentListener;

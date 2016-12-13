@@ -16,9 +16,38 @@ android {
             }
         }
     }
-    buildTypes {
+
+    signingConfigs {
         release {
-            minifyEnabled false
+            try {
+                storeFile file("E:/Work/ylb/hlc-android/yonglibao-release.keystore")
+                storePassword "227df7aca2e27222e89d0a43b37a331c"
+                keyAlias "www.yonglibao.com"
+                keyPassword "a2e27222e89d0a43"
+            } catch (ex) {
+                throw new Exception(ex.toString())
+            }
+        }
+
+//        debug {
+//            storeFile file("./keystore/debug.keystore")
+//        }
+    }
+
+
+    buildTypes {
+        debug{
+            versionNameSuffix ".dev"
+        }
+        release {
+            debuggable false
+            //删除一些无用资源
+            shrinkResources true
+            //Zipalign优化
+            zipAlignEnabled true
+//            开启混淆
+            minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

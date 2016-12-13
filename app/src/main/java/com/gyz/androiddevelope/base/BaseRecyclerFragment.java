@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.gyz.androiddevelope.R;
+import com.gyz.androiddevelope.adapter.BaseRecyclerAdapter;
 import com.gyz.androiddevelope.listener.OnRecyclerRefreshListener;
 import com.gyz.androiddevelope.listener.RecycleViewOnScrollListener;
 import com.gyz.androiddevelope.util.LogUtils;

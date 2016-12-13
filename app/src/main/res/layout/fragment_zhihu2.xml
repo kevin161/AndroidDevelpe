@@ -5,7 +5,7 @@
     android:background="@color/color_f2f2f2"
     android:orientation="vertical">
 
-    <com.gyz.androiddevelope.view.PullToRefreshRecyeclerView
+    <com.gyz.androiddevelope.view.PullToRefreshRecyclerView
         android:id="@+id/pullView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

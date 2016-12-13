@@ -169,22 +169,13 @@ native <methods>;
 -dontwarn com.alibaba.fastjson.**
 
 # andfix
--printmapping proguard.map
--applymapping proguard.map
+#-printmapping proguard.map
+#-applymapping proguard.map
 -keep class * extends java.lang.annotation.Annotation
 -keepclasseswithmembernames class * {
     native <methods>;
 }
 -keep class com.alipay.euler.andfix.** { *; }
-
-#禁用log输出
-#-assumenosideeffects class android.util.Log {
-#    public static *** v(...);
-#    public static *** i(...);
-#    public static *** d(...);
-#    public static *** w(...);
-#    public static *** e(...);
-#}
 
 
 #fresco

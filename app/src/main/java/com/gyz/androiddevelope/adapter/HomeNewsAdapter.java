@@ -11,7 +11,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gyz.androiddevelope.R;
-import com.gyz.androiddevelope.base.BaseRecyclerAdapter;
 import com.gyz.androiddevelope.engine.AppContants;
 import com.gyz.androiddevelope.listener.ItemTouchMoveListener;
 import com.gyz.androiddevelope.listener.StartDragListener;

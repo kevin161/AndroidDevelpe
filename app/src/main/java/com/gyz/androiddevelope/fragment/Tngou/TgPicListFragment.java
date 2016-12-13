@@ -13,7 +13,7 @@ import com.gyz.androiddevelope.activity.tngou.AlbumDetailActivity;
 import com.gyz.androiddevelope.adapter.TgPicListAdapter;
 import com.gyz.androiddevelope.base.BaseApplication;
 import com.gyz.androiddevelope.base.BaseFragment;
-import com.gyz.androiddevelope.base.BaseRecyclerAdapter;
+import com.gyz.androiddevelope.adapter.BaseRecyclerAdapter;
 import com.gyz.androiddevelope.engine.AppContants;
 import com.gyz.androiddevelope.net.retrofit.MySubscriber;
 import com.gyz.androiddevelope.net.retrofit.ReUtil;

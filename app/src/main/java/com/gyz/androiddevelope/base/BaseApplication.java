@@ -1,6 +1,8 @@
 package com.gyz.androiddevelope.base;
 
 import android.app.Application;
+import android.content.Context;
+
 import com.alipay.euler.andfix.patch.PatchManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.stetho.Stetho;
@@ -12,6 +14,7 @@ import com.gyz.androiddevelope.db.WebCacheDbHelper;
 import com.gyz.androiddevelope.engine.AppContants;
 import com.gyz.androiddevelope.net.volley.VolleyInit;
 import com.gyz.androiddevelope.util.SPUtils;
+import com.gyz.androiddevelope.util.hotfix.FixDexUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.tencent.bugly.Bugly;
 
@@ -30,6 +33,14 @@ public class BaseApplication extends Application {
     private static TngouListDbHelper tngouListDbHelper;
     private PatchManager patchManager;
     private boolean isLogin;
+
+    @Override
+    protected void attachBaseContext(Context base) {
+
+//        MultiDex.install(base);
+        FixDexUtils.loadFixedDex(base);
+        super.attachBaseContext(base);
+    }
 
     @Override
     public void onCreate() {

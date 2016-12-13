@@ -100,6 +100,7 @@
         <activity android:name=".activity.custom.DisScrollActivity" />
         <activity android:name=".view.parallax.SplashActivity" />
         <activity android:name=".activity.custom.MyRecyclerActivity" />
+        <activity android:name=".activity.custom.HotFixActivity" />
         <activity android:name=".activity.custom.TransformActivity"
             android:theme="@style/AppTransform"/>
         <activity android:name=".activity.custom.TransformSecondActivity"
