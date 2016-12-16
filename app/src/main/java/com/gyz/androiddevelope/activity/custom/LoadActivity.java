@@ -15,6 +15,7 @@ import com.gyz.androiddevelope.engine.AppContants;
 import com.gyz.androiddevelope.net.retrofit.ReUtil;
 import com.gyz.androiddevelope.net.retrofit.RxUtil;
 import com.gyz.androiddevelope.response_bean.LoadImageBean;
+import com.gyz.androiddevelope.service.JobHandleService;
 import com.gyz.androiddevelope.service.LocalService;
 import com.gyz.androiddevelope.service.RemoteService;
 import com.gyz.androiddevelope.util.FileUtil;
@@ -142,7 +143,7 @@ public class LoadActivity extends BaseActivity {
     protected void loadData() {
         startService(new Intent(this, LocalService.class));
         startService(new Intent(this, RemoteService.class));
-
+        startService(new Intent(this, JobHandleService.class));
 //        BaseInput baseInput = BeanTest.buildInput(23,34,"tom");
 //        Map<String,Object> map = baseInput.getParams();
 //        LogUtil.e(TAG,map.get("uname"));

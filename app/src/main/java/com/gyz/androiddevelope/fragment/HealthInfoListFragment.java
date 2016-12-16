@@ -43,16 +43,7 @@ public class HealthInfoListFragment extends BaseFragment implements SwipeRefresh
     private int page = 1, rows, id, lastVisibleItemPosition;
     private boolean isAdd;
 
-
-//    @Nullable
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_health_info_list, container, false);
-//
-//        ButterKnife.bind(this, view);
-//        return view;
-//    }
-
+ 
     @Override
     public int getLayoutId() {
         return R.layout.fragment_health_info_list;

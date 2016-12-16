@@ -1,6 +1,7 @@
 package com.gyz.androiddevelope.service;
 
 
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 import android.widget.Toast;
 
 import com.gyz.androiddevelope.IMyAidlInterface;
@@ -46,7 +48,18 @@ public class RemoteService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         RemoteService.this.bindService(new Intent( RemoteService.this, LocalService.class), myConn, Context.BIND_IMPORTANT);
-        return super.onStartCommand(intent, flags, startId);
+        PendingIntent contentIntent = PendingIntent.getService(this, 0, intent, 0);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
+        builder.setTicker("360")
+                .setContentIntent(contentIntent)
+                .setContentTitle("我是360，我怕谁!")
+                .setAutoCancel(true)
+                .setContentText("hehehe")
+                .setWhen( System.currentTimeMillis());
+
+        //把service设置为前台运行，避免手机系统自动杀掉改服务。
+        startForeground(startId, builder.build());
+        return START_STICKY;
     }
 
 

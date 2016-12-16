@@ -26,6 +26,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
         android:name=".base.BaseApplication"
@@ -97,6 +98,7 @@
         <activity android:name=".activity.custom.ImageCrapActivity" />
         <activity android:name=".activity.custom.DashBoardActivity" />
         <activity android:name=".activity.custom.GradientActivity" />
+        <activity android:name=".activity.custom.AlbumListActivity" />
         <activity android:name=".activity.custom.DisScrollActivity" />
         <activity android:name=".view.parallax.SplashActivity" />
         <activity android:name=".activity.custom.MyRecyclerActivity" />
@@ -123,6 +125,8 @@
         <service
             android:name=".service.DownloadService"
             android:exported="false" />
+        <service android:name=".service.JobHandleService"
+            android:permission="android.permission.BIND_JOB_SERVICE"  />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.activity.HomeActivity;
+import com.gyz.androiddevelope.activity.custom.AlbumListActivity;
 import com.gyz.androiddevelope.activity.custom.CalenderActivity;
 import com.gyz.androiddevelope.activity.custom.CircleActivity;
 import com.gyz.androiddevelope.activity.custom.ConcatMatrixActivity;
@@ -119,12 +120,14 @@ public class TestFragment extends BaseFragment {
         return "test";
     }
 
-    @OnClick({ R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
+    @OnClick({ R.id.btnAlbumList,R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
             R.id.btnHome, R.id.btnOnClick, R.id.statusBar, R.id.btnGo, R.id.btnOkHttp, R.id.btnOkHttp3, R.id.view, R.id.retrofit, R.id.btnHealth, R.id.btnHealthList})
     public void OnClick(View view) {
 
         switch (view.getId()) {
-
+            case R.id.btnAlbumList:
+                startActivity(new Intent(getActivity().getApplicationContext(),AlbumListActivity.class));
+                break;
             case R.id.btnHotFix:
                 startActivity(new Intent(getActivity().getApplicationContext(),HotFixActivity.class));
                 break;
