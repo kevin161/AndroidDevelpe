@@ -23,6 +23,7 @@ import com.gyz.androiddevelope.util.SPUtils;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,6 +41,7 @@ public class LoadActivity extends BaseActivity {
     @Bind(R.id.layoutStartImg)
     ImageView layoutStartImg;
     File file;
+    private LoadImageBean myLoadImageBean;
 
     @Override
     protected void initVariables() {
@@ -100,19 +102,8 @@ public class LoadActivity extends BaseActivity {
 
             @Override
             public void onNext(final LoadImageBean loadImageBean) {
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            FileUtil.saveMyBitmap(file, Picasso.with(getBaseContext()).load(loadImageBean.img).get());
-//                                    FileUtil.saveImgFromNet(loadImageBean.img,file);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }).start();
+                myLoadImageBean = loadImageBean;
+                new MyThread(LoadActivity.this).start();
             }
         });
 
@@ -137,6 +128,25 @@ public class LoadActivity extends BaseActivity {
             public void onAnimationRepeat(Animation animation) {
             }
         });
+    }
+
+    public static class MyThread extends Thread {
+        private WeakReference<LoadActivity> loadActivityWeakReference;
+        public MyThread(LoadActivity loadActivity) {
+            loadActivityWeakReference = new WeakReference<>(loadActivity);
+        }
+
+        @Override
+        public void run() {
+            super.run();
+            LoadActivity myLoadActivity = loadActivityWeakReference.get();
+            try {
+                FileUtil.saveMyBitmap(myLoadActivity.file, Picasso.with(myLoadActivity.getApplicationContext()).load(myLoadActivity.myLoadImageBean.img).get());
+//                                    FileUtil.saveImgFromNet(loadImageBean.img,file);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

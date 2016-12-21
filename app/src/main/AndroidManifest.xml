@@ -137,6 +137,10 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths"/>
         </provider>
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="huolicai" />
     </application>
 
 </manifest>

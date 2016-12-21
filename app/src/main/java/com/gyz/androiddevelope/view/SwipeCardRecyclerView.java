@@ -169,16 +169,18 @@ public class SwipeCardRecyclerView extends RecyclerView {
         if (del){
             animView = getMirrorView(view);
             float offsetX = getX() - mDecorView.getX();
-            float offsetY = getY()- mDecorView.getY();
-            targetY = caculateExitY(mTopViewX+offsetX,mTopViewY+offsetY,
-                    animView.getX(),animView.getY(),targetX);
+            float offsetY = getY() - mDecorView.getY();
+            targetY = caculateExitY(mTopViewX + offsetX, mTopViewY + offsetY, animView.getX(), animView.getY(), targetX);
             interpolator = new LinearInterpolator();
         }else {
             interpolator = new OvershootInterpolator();
         }
         final boolean finalDel = del;
         final View finalAnimView = animView;
-        animView.animate().setDuration(500).x(targetX).y(targetY)
+        animView.animate()
+                .setDuration(500)
+                .x(targetX)
+                .y(targetY)
                 .setInterpolator(interpolator)
                 .setListener(new Animator.AnimatorListener() {
                     @Override

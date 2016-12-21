@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 
 import com.gyz.androiddevelope.R;
 
-/**
+/** 用于平行空间引导页
  * @version V1.0
  * @FileName: com.gyz.androiddevelope.view.WelcompagerTransformer.java
  * @author: ZhaoHao
@@ -44,6 +44,8 @@ public class WelcompagerTransformer implements ViewPager.PageTransformer, ViewPa
      * position:当前滑动的位置
      * 视差效果：在View正常滑动的情况下，给当前View或者当前view里面的每一个子view来一个加速度
      * 而且每一个加速度大小不一样。
+     *A页的position变化就是( 0, -1]
+      B页的position变化就是[ 1 , 0 ]
      */
     @Override
     public void transformPage(View view, float position) {
@@ -92,7 +94,8 @@ public class WelcompagerTransformer implements ViewPager.PageTransformer, ViewPa
 
         if (position == 0) {
             System.out.println("position==0");
-            //pageChanged作用--解决问题：只有在切换页面的时候才展示平移动画，如果不判断则会只是移动一点点当前页面松开也会执行一次平移动画
+            //pageChanged作用--解决问题：只有在切换页面的时候才展示平移动画，
+            // 如果不判断则会只是移动一点点当前页面松开也会执行一次平移动画
             if (pageChanged) {
                 bg1.setVisibility(View.VISIBLE);
                 bg2.setVisibility(View.VISIBLE);

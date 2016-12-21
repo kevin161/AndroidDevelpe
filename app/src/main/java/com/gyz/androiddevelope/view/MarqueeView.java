@@ -34,8 +34,6 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
     private ViewPager vp;
     private boolean isAutoPlay;
     private int currentItem;
-    private int delayTime;
-    private LinearLayout ll_dot;
     private List<ImageView> iv_dots;
     private Handler handler = new Handler();
     private OnItemClickListener mItemClickListener;
@@ -51,7 +49,6 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
     private void initView() {
         views = new ArrayList<View>();
         iv_dots = new ArrayList<ImageView>();
-        delayTime = 2000;
     }
 
     public MarqueeView(Context context, AttributeSet attrs) {
@@ -76,7 +73,7 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
         View view = LayoutInflater.from(context.getApplicationContext()).inflate(
                 R.layout.kanner_layout, this, true);
         vp = (ViewPager) view.findViewById(R.id.vp);
-        ll_dot = (LinearLayout) view.findViewById(R.id.ll_dot);
+        LinearLayout ll_dot = (LinearLayout) view.findViewById(R.id.ll_dot);
         ll_dot.removeAllViews();
 
         int len = topStoriesEntities.size();
@@ -158,27 +155,6 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
             }
         }
     }
-
-
-//    private   Runnable task = new Runnable() {
-//
-//        @Override
-//        public void run() {
-//            if (isAutoPlay) {
-//                currentItem = currentItem % (topStoriesEntities.size() + 1) + 1;
-//                if (currentItem == 1) {
-//                    vp.setCurrentItem(currentItem, false);
-//                    handler.post(task);
-//                } else {
-//                    vp.setCurrentItem(currentItem);
-//                    handler.postDelayed(task, 5000);
-//                }
-//            } else {
-//                handler.postDelayed(task, 5000);
-//            }
-//        }
-//    };
-
 
     class MyPagerAdapter extends PagerAdapter {
 

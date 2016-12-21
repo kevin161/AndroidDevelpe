@@ -79,6 +79,11 @@ public class LoginActivity extends BaseToolbarNormalActivity {
     @Override
     protected void loadData() {
 
+        String userAccount = (String) SPUtils.get(this, AppContants.USERACCOUNT, "");
+        String userPwd = (String) SPUtils.get(this,AppContants.USERPASSWORD,"");
+
+        actvUsername.setText(userAccount);
+        editPassword.setText(userPwd);
     }
 
     /**
@@ -165,12 +170,11 @@ public class LoginActivity extends BaseToolbarNormalActivity {
                             public void onDismissed(Snackbar snackbar, int event) {
                                 super.onDismissed(snackbar, event);
                                 // 跳转至个人中心
-                                saveUserInfo(mUserBean,mTokenBean,userName,pwd,boardListInfoBean.getBoards());
                                 UserActivity.startActivity(LoginActivity.this, String.valueOf(mUserBean.getUser_id()), mUserBean.getUsername());
                                 finishActivity();
                             }
                         });
-
+                        saveUserInfo(mUserBean,mTokenBean,userName,pwd,boardListInfoBean.getBoards());
                     }
                 });
     }

@@ -277,14 +277,19 @@ public class UserActivity extends BaseActivity implements OnSwipeRefreshFragment
                 @Override
                 public void onNext(UserMeAndOtherBean userMeAndOtherBean) {
                     if (userMeAndOtherBean.getErr() == AppContants.HUABAN_ERR_NUM) {
-                        ToastUtil.showShort(getBaseContext(), "登录过期，请重新登录！");
-                        LoginActivity.startActivity(getBaseContext());
-                        finish();
+                        loginRepeat();
                     } else {
                         setUserInfo(userMeAndOtherBean);
                     }
                 }
             });
+    }
+
+    private void loginRepeat() {
+        ToastUtil.showShort(getBaseContext(), "登录过期，请重新登录！");
+        LoginActivity.startActivity(getBaseContext());
+        finish();
+
     }
 
     private void setUserInfo(UserMeAndOtherBean bean) {
