@@ -13,6 +13,7 @@ public class AppContants {
     public static final int ZHIHU_HTTP = 1001;
     public static final int TNGOU_HTTP = 1002;
     public static final int HUABAN_HTTP = 1003;
+    public static final int HTF_HTTP = 1004;
 
     public static final int WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 101;
 
@@ -29,6 +30,8 @@ public class AppContants {
     public static final String BASE_URL_ZHIHU = "http://news-at.zhihu.com/api/4/";
     public static final String BASE_URL_TNGOU = "http://www.tngou.net/";
     public static final String BASE_URL_HUABAN = "https://api.huaban.com/";
+    public static final String BASE_URL_HTF = "http://10.50.115.99:9089/mobile3/";
+
 
     public static final String FILE_NAME = "gyz";
     //,

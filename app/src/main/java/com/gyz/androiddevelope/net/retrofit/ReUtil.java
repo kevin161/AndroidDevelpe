@@ -40,6 +40,9 @@ public class ReUtil {
             case AppContants.HUABAN_HTTP:
                 baseUrl = AppContants.BASE_URL_HUABAN;
                 break;
+            case AppContants.HTF_HTTP:
+                baseUrl = AppContants.BASE_URL_HTF;
+                break;
         }
 
 //        LoggingInterceptor loggingInterceptor = new LoggingInterceptor();

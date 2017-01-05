@@ -8,6 +8,7 @@
     <dimen name="nav_header_height">160dp</dimen>
 
     <!--字体大小-->
+    <dimen name="sp_10">10sp</dimen>
     <dimen name="sp_12">12sp</dimen>
     <dimen name="sp_13">13sp</dimen>
     <dimen name="sp_14">14sp</dimen>

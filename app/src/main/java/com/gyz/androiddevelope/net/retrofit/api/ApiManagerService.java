@@ -2,6 +2,7 @@ package com.gyz.androiddevelope.net.retrofit.api;
 
 import com.gyz.androiddevelope.engine.AppContants;
 import com.gyz.androiddevelope.net.volley.bean.HotSearchBean;
+import com.gyz.androiddevelope.net.volley.bean.HtfLoginBean;
 import com.gyz.androiddevelope.request_bean.ReqHealthInfoList;
 import com.gyz.androiddevelope.request_bean.ReqUserInfoBean;
 import com.gyz.androiddevelope.request_bean.ReqWeatherBean;
@@ -222,5 +223,16 @@ public interface ApiManagerService {
     //搜索关键字 提示
     @GET("search/hint")
     Observable<SearchHintBean> httpsSearHintBean(@Header("Authorization") String authorization, @Query("q") String key);
+
+    //====================汇添富====================
+    @FormUrlEncoded
+    @POST("services/account/login")
+    Observable<HtfLoginBean> htfLogin(@Field("certNum")String certNum,@Field("password") String password,
+                                      @Field("certType") String certType,@Field("deviceId") String deviceId,
+                                      @Field("device") String device ,@Field("os") String os,
+                                      @Field("version") String version,@Field("versionCode") String versionCode,
+                                      @Field("access") String access,@Field("carrier") String carrier,
+                                      @Field("imei") String imei,@Field("macAddress") String macAddress,
+                                      @Field("androidId") String androidId,@Field("uniqueId") String uniqueId);
 
 }

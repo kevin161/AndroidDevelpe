@@ -28,14 +28,14 @@ public class MySubscriber<T> extends Subscriber<T> {
     @Override
     public void onStart() {
         if (context instanceof BaseActivity){
-           ((BaseActivity) context).dlg.show();
+           ((BaseActivity) context).dialogShow(true);
         }
     }
 
     @Override
     public void onCompleted() {
         if (context instanceof BaseActivity){
-            ((BaseActivity) context).dlg.hide();
+            ((BaseActivity) context).dialogDismiss();
         }
     }
 

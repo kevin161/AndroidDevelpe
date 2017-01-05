@@ -41,7 +41,7 @@ public class DisScrollView extends ScrollView {
         int scrollViewHeight = getHeight();
         //监听滑动----接口---->控制DiscrollViewContent的属性
         for (int i = 0; i < mContent.getChildCount(); i++) {
-            ////遍历MyLinearLayout里面所有子控件(MyViewGroup)
+            ////遍历MyLinearLayout里面所有子控件(MyViewGroupActivity)
             View child = mContent.getChildAt(i);
             if (!(child instanceof DiscrollvableInterface)) {
                 continue;

@@ -120,18 +120,4 @@ public class Win10Progress extends View{
         canvas.drawPath(dst,mPaint);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

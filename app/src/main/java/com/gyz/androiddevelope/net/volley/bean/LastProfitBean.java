@@ -26,8 +26,6 @@ public class LastProfitBean {
 
     }
 
-
-
     public int returnCode;
     public String returnMsg;
     public String successMsg;

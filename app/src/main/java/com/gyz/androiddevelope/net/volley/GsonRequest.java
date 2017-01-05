@@ -16,12 +16,17 @@ import com.google.gson.JsonSyntaxException;
 import com.gyz.androiddevelope.net.volley.bean.BaseInput;
 import com.gyz.androiddevelope.util.GsonUtils;
 import com.gyz.androiddevelope.util.LogUtils;
+import com.gyz.androiddevelope.util.SPUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.net.CookieHandler;
+import java.net.HttpCookie;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,10 +40,12 @@ public class GsonRequest<T> extends Request<T> {
 
     private Response.Listener<T> mListener;
     private Map<String, String> params = new HashMap<>();
+    public static HashMap<String, String> headMap = new HashMap<>();
+    private String mHeaderCookie;
     public Class<T> mClazz;
 
     public GsonRequest(BaseInput<T> input, Response.Listener<T> listener, Response.ErrorListener errorListener) {
-        super(input.method,input.getUrl(),errorListener);
+        super(input.method, input.getUrl(), errorListener);
         this.mClazz = input.clazz;
         this.mListener = listener;
         buildRequestParams(input);
@@ -51,7 +58,7 @@ public class GsonRequest<T> extends Request<T> {
 
     @Override
     protected Map<String, String> getParams() throws AuthFailureError {
-        LogUtils.e(TAG,"GETparams..."+params);
+        LogUtils.e(TAG, "GETparams..." + params);
         return params;
     }
 
@@ -59,9 +66,13 @@ public class GsonRequest<T> extends Request<T> {
     protected Response<T> parseNetworkResponse(NetworkResponse response) {
 
         try {
-           // String defaultCharset = HttpHeaderParser.parseCharset(response.headers);
+            // String defaultCharset = HttpHeaderParser.parseCharset(response.headers);
 
-            String data = new String(response.data,"utf-8");
+            String data = new String(response.data, "utf-8");
+            //cookie
+            mHeaderCookie = response.headers.toString();
+            Log.e("LOG", "get headers in parseNetworkResponse " + response.headers.toString());
+            saveCookie(response.headers);
             // 服务器返回errNo=0 status: true,
             if (!TextUtils.isEmpty(data)) {
                 //如果有编码解密操作
@@ -124,9 +135,20 @@ public class GsonRequest<T> extends Request<T> {
         headerMap.put("X-Wap-Proxy-Cookie", "none");
         // WIFI或者非Wap网络下，添加cookie
 //        if (NetworkUtils.isWifi() || !Init.isWap()) {
-            headerMap.put("Cookie", getCookie());
+        headerMap.put("Cookie", getCookie());
 //        }
         return headerMap;
+    }
+
+
+    public void saveCookie(Map<String, String> headers) {
+        mHeaderCookie = headers.get("Set-Cookie");
+
+        if (mHeaderCookie != null) {
+            String cookieName = HttpCookie.parse(mHeaderCookie).get(0).getName();
+            headMap.put(cookieName, mHeaderCookie);
+        }
+        Log.e(TAG, "mHeaderCookie =" + mHeaderCookie);
     }
 
     /**
@@ -134,14 +156,30 @@ public class GsonRequest<T> extends Request<T> {
      *
      * @return
      */
-    private static String getCookie() {
-        Map<String, String> commonParams = buildCommonParams();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (String key : commonParams.keySet()) {
-            stringBuilder.append(key).append("=").append(commonParams.get(key));
-            stringBuilder.append(";");
+    private String getCookie() {
+//        Map<String, String> commonParams = buildCommonParams();
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for (String key : commonParams.keySet()) {
+//            stringBuilder.append(key).append("=").append(commonParams.get(key));
+//            stringBuilder.append(";");
+//        }
+//        return stringBuilder.toString();
+        if (headMap != null) {
+            StringBuffer sb = new StringBuffer();
+            Iterator<Map.Entry<String, String>> it = headMap.entrySet().iterator();
+            boolean isFirst = true;
+            while (it.hasNext()) {
+                if (!isFirst) {
+                    sb.append(",");
+                } else {
+                    isFirst = false;
+                }
+                Map.Entry<String, String> pairs = it.next();
+                sb.append(pairs.getValue());
+            }
+            return sb.toString();
         }
-        return stringBuilder.toString();
+        return "";
     }
 
     /**
@@ -158,7 +196,7 @@ public class GsonRequest<T> extends Request<T> {
 //        }
 //        params.put("TERMINAL", "android_" + deviceId);
         params.put("APP_VERSION", "android_" + VolleyInit.getVersionName());
-      //  params.put("CHANNEL", VolleyInit.getChannel());
+        //  params.put("CHANNEL", VolleyInit.getChannel());
         params.put("BDUSS", bduss);
         params.put("APP_TIME", System.currentTimeMillis() + "");
         return params;

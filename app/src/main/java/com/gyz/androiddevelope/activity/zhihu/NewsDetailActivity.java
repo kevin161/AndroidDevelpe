@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -76,6 +77,7 @@ public class NewsDetailActivity extends BaseActivity implements Toolbar.OnMenuIt
 
     public static void startActivity(Context context, int id) {
         context.startActivity(new Intent(context, NewsDetailActivity.class).putExtra(NEWS_ID, id));
+
     }
 
     @Override
@@ -149,7 +151,6 @@ public class NewsDetailActivity extends BaseActivity implements Toolbar.OnMenuIt
                 SQLiteDatabase database = BaseApplication.getInstantce().getWebCacheDbHelper().getWritableDatabase();
                 database.execSQL("replace into webCache(newsId,json) values( " + newsDetailBean.getId() + ",'" + newsDetailBean.getBody() + "')");
                 database.close();
-
             }
         });
         //文章评论 点赞数

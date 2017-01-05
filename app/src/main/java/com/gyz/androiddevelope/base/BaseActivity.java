@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.gyz.androiddevelope.util.ScreenUtils;
+import com.gyz.androiddevelope.view.WaitingDialog;
 
 import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.Utils;
@@ -16,7 +17,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivityHelper;
 public abstract class BaseActivity extends AppCompatActivity implements SwipeBackActivityBase {
 
     public static final String TAG = "BaseActivity";
-    public ProgressDialog dlg;
+    private WaitingDialog myLoadingNowPageDialog;
     private SwipeBackActivityHelper mHelper;
 
     @Override
@@ -32,7 +33,6 @@ public abstract class BaseActivity extends AppCompatActivity implements SwipeBac
     }
 
     private void initBaseView() {
-        dlg = new ProgressDialog(this);
     }
 
     /*
@@ -91,7 +91,41 @@ public abstract class BaseActivity extends AppCompatActivity implements SwipeBac
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (dlg != null)
-            dlg.dismiss();
+        dialogDismiss();
+    }
+
+    /**
+     *
+     * @param canCancel    setCanceledOnTouchOutside
+     */
+    public void dialogShow(boolean canCancel) {
+        if (myLoadingNowPageDialog == null) {
+            myLoadingNowPageDialog = new WaitingDialog(this);
+        }
+        myLoadingNowPageDialog.setCanceledOnTouchOutside(canCancel);
+        myLoadingNowPageDialog.startAnimation();
+        myLoadingNowPageDialog.setCancelable(true);
+        if (myLoadingNowPageDialog.isShowing()) {
+            return;
+        }
+        if (this != null && !isFinishing()) {
+            try{
+                myLoadingNowPageDialog.show();
+            }catch(Exception e){}
+        }
+    }
+
+    public void dialogDismiss() {
+        if (myLoadingNowPageDialog != null
+                && myLoadingNowPageDialog.isShowing()) {
+//            ImageView animImg = myLoadingNowPageDialog.getAnim_img();
+//            if (animImg != null && animImg.getAnimation() != null) {
+//                myLoadingNowPageDialog.stopAnimation();
+//            }
+            if (this != null && !isFinishing()) {
+                myLoadingNowPageDialog.dismiss();
+            }
+
+        }
     }
 }

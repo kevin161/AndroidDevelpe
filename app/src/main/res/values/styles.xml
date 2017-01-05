@@ -106,4 +106,49 @@
     <style name="text_image_detail_secondary" parent="text_secondary">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
+    //==================Dialog=======================
+    <style name="DT_DIALOG_THEME" parent="android:Theme.Dialog">
+        <item name="android:padding">0dp</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:background">@drawable/dt_dialog_bg</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="DT_DIALOG_ANIMATIONS" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dt_dialog_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/dt_dialog_exit_anim</item>
+    </style>
+
+
+    <style name="MyDialogStyleCenterFuzzy" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!--边框-->
+        <item name="android:windowIsFloating">true</item>
+        <!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--半透明-->
+        <item name="android:windowNoTitle">true</item>
+        <!--无标题-->
+        <item name="android:windowFullscreen">true</item>
+        <!-- 设置全屏 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--背景透明-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--模糊-->
+    </style>
+
+    <style name="DT_DIALOG_Translucent" parent="android:style/Theme.Dialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
 </resources>

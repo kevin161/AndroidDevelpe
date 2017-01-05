@@ -9,6 +9,7 @@ import com.android.volley.VolleyError;
 import com.gyz.androiddevelope.net.volley.bean.BaseInput;
 import com.gyz.androiddevelope.util.LogUtils;
 import com.gyz.androiddevelope.util.ToastUtil;
+import com.gyz.androiddevelope.view.WaitingDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +26,7 @@ public class VolleyBaseActivity extends AppCompatActivity {
      * http tag
      */
     private List<Integer> arrayTag = new ArrayList<Integer>();
+    private WaitingDialog myLoadingNowPageDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,14 +45,14 @@ public class VolleyBaseActivity extends AppCompatActivity {
     public void httpRequestEntrance(BaseInput<Object> input, final RequestListener listener,
                                     final int iType, boolean isTouchOutSide, final boolean isDialogDisplay) {
         if (isDialogDisplay) {
-            //TODO  dialogShow(isTouchOutSide);
+              dialogShow(isTouchOutSide);
         }
 
         GsonRequest<Object> request = new GsonRequest<>(input,new Response.Listener<Object>(){
             @Override
             public void onResponse(Object response) {
                 if(isDialogDisplay){
-//                    dialogDismiss();
+                    dialogDismiss();
                 }
                 if(response != null){
                     if(listener != null){
@@ -156,7 +158,7 @@ public class VolleyBaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-      //  dialogDismiss();
+        dialogDismiss();
         cancelAllRequest();
     }
 
@@ -174,5 +176,42 @@ public class VolleyBaseActivity extends AppCompatActivity {
             arrayTag.clear();
         }
     }
+
+//    ================================================
+    /**
+     *
+     * @param canCancel    setCanceledOnTouchOutside
+     */
+    public void dialogShow(boolean canCancel) {
+        if (myLoadingNowPageDialog == null) {
+            myLoadingNowPageDialog = new WaitingDialog(this);
+        }
+        myLoadingNowPageDialog.setCanceledOnTouchOutside(canCancel);
+        myLoadingNowPageDialog.startAnimation();
+        myLoadingNowPageDialog.setCancelable(true);
+        if (myLoadingNowPageDialog.isShowing()) {
+            return;
+        }
+        if (this != null && !isFinishing()) {
+            try{
+                myLoadingNowPageDialog.show();
+            }catch(Exception e){}
+        }
+    }
+
+    public void dialogDismiss() {
+        if (myLoadingNowPageDialog != null
+                && myLoadingNowPageDialog.isShowing()) {
+//            ImageView animImg = myLoadingNowPageDialog.getAnim_img();
+//            if (animImg != null && animImg.getAnimation() != null) {
+//                myLoadingNowPageDialog.stopAnimation();
+//            }
+            if (this != null && !isFinishing()) {
+                myLoadingNowPageDialog.dismiss();
+            }
+
+        }
+    }
+
 
 }
