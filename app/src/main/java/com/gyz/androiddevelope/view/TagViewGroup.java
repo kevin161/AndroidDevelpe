@@ -2,8 +2,18 @@ package com.gyz.androiddevelope.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.gyz.androiddevelope.R;
+import com.gyz.androiddevelope.util.DensityUtils;
+import com.gyz.androiddevelope.util.ToastUtil;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,13 +23,42 @@ import java.util.List;
  *
  * @version V1.0
  * @FileName: com.gyz.androiddevelope.view.MyViewGroupActivity.java
- * @author: ZhaoHao
+ * @author: GYZ
  * @date: 2016-12-31 14:23
  */
 public class TagViewGroup extends ViewGroup {
 
+    public  TagViewGroup(Context context){
+        this(context,null);
+    }
+
     public TagViewGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+    public void addTag(List<String> list){
+        this.removeAllViews();
+        for (String str : list) {
+
+            final TextView textView  = new TextView(getContext());
+            textView.setText(str);
+            textView.setPadding(15,8,15,8);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_SP,13);
+            textView.setBackgroundResource(R.drawable.shape_loading_now_page_bg);
+            textView.setClickable(true);
+            textView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ToastUtil.showShort(getContext(),textView.getText().toString());
+                }
+            });
+
+           LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT,LayoutParams.WRAP_CONTENT);
+            params.setMargins(22,48,22,0);
+            textView.setLayoutParams(params);
+
+            addView(textView);
+        }
     }
 
     @Override
@@ -73,60 +112,6 @@ public class TagViewGroup extends ViewGroup {
     //记录每一行有多高
     private List<Integer> lineHeights = new ArrayList<>();
     private List<List<View>> views = new ArrayList<>();
-
-//    @Override
-//    protected void onLayout(boolean changed, int l, int t, int r, int b) {
-//        views.clear();
-//        lineHeights.clear();
-//
-//        List<View> childList = new ArrayList<>();
-//        int width = getMeasuredWidth();
-//        int lineWidth = 0;
-//        int lineHeight = 0;//一行中最高的高度
-//        int childCount = getChildCount();
-//        for (int i = 0; i < childCount; i++) {
-//            View child = getChildAt(i);
-//            MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-//            int childWidth = child.getMeasuredWidth();
-//            int childHeight = child.getMeasuredHeight();
-//
-//            if (lp.rightMargin+lp.leftMargin+childWidth+lineWidth>width){
-//                //换行
-//                lineHeights.add(lineHeight);
-//                views.add(childList);
-//                lineWidth = 0;
-//                childList = new ArrayList<>();
-//            }
-//                childList.add(child);
-//                lineWidth +=lp.rightMargin+lp.leftMargin+childWidth;
-//                lineHeight = Math.max(lineHeight,childHeight+lp.topMargin+lp.bottomMargin);
-//        }
-//        lineHeights.add(lineHeight);
-//        views.add(childList);
-//
-//        int left = 0;
-//        int top = 0;
-//        //2.摆放
-//        int size = views.size();
-//        for (int i = 0; i < size; i++) {
-//           List<View> list =  views.get(i);
-//            lineHeight = lineHeights.get(i);
-//            for (int j = 0; j < list.size(); j++) {
-//                View child = list.get(j);
-//                MarginLayoutParams lp = (MarginLayoutParams) child.getLayoutParams();
-//                int lc  = left+lp.leftMargin;
-//                int tc  = top + lp.topMargin;
-//                int rc = lc + child.getMeasuredWidth();
-//                int bc  = tc + child.getMeasuredHeight();
-//
-//                child.layout(lc,tc,rc,bc);
-//                left += child.getMeasuredWidth() + lp.leftMargin + lp.rightMargin;
-//            }
-//            left = 0;
-//            top+=lineHeight;
-//        }
-//    }
-
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
@@ -194,5 +179,4 @@ public class TagViewGroup extends ViewGroup {
     protected LayoutParams generateLayoutParams(LayoutParams p) {
         return new MarginLayoutParams(p);
     }
-
 }

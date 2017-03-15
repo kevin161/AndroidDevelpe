@@ -124,6 +124,7 @@ public class TngouFragment extends BaseFragment {
 
         pagerAdapter = new TngouPicViewPagerAdapter(getActivity().getSupportFragmentManager(), fragmentList, list);
         viewpager.setAdapter(pagerAdapter);
+
         tabLayout.setupWithViewPager(viewpager);
 
         for (int i = 0;i<tabLayout.getTabCount();i++){

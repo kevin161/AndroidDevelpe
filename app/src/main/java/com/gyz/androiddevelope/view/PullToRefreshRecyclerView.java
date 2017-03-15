@@ -35,6 +35,7 @@ public class PullToRefreshRecyclerView extends LinearLayout{
         this(context, null);
     }
 
+
     public PullToRefreshRecyclerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }

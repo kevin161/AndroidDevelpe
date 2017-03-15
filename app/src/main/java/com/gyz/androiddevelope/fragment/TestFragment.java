@@ -30,10 +30,12 @@ import com.gyz.androiddevelope.activity.custom.McalendarActivity;
 import com.gyz.androiddevelope.activity.custom.MountainViewActivity;
 import com.gyz.androiddevelope.activity.custom.MyListViewActivity;
 import com.gyz.androiddevelope.activity.custom.MyProgressBarActivity;
+import com.gyz.androiddevelope.activity.custom.MyRadioGroupActivity;
 import com.gyz.androiddevelope.activity.custom.MyRecyclerActivity;
 import com.gyz.androiddevelope.activity.custom.MyWebActivity;
 import com.gyz.androiddevelope.activity.custom.NearBySearchActivity;
 import com.gyz.androiddevelope.activity.custom.NoBoringActionBarActivity;
+import com.gyz.androiddevelope.activity.custom.PieChartActivity;
 import com.gyz.androiddevelope.activity.custom.QQSlidingActivity;
 import com.gyz.androiddevelope.activity.custom.SearchViewActivity;
 import com.gyz.androiddevelope.activity.custom.ShowInfoActivity;
@@ -50,6 +52,7 @@ import com.gyz.androiddevelope.engine.User;
 import com.gyz.androiddevelope.net.okhttp.OkHttpClientManager;
 import com.gyz.androiddevelope.net.retrofit.ReUtil;
 import com.gyz.androiddevelope.net.retrofit.RxUtil;
+import com.gyz.androiddevelope.net.volley.TestVolleyActivity;
 import com.gyz.androiddevelope.net.volley.VolleyActivity;
 import com.gyz.androiddevelope.proxy.EvilInstrumentation;
 import com.gyz.androiddevelope.request_bean.ReqUserInfoBean;
@@ -120,11 +123,22 @@ public class TestFragment extends BaseFragment {
         return "test";
     }
 
-    @OnClick({ R.id.btnAlbumList,R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
+    @OnClick({R.id.btnPieChart,R.id.btnVolleyTest,R.id.btnRadioGroup, R.id.btnAlbumList,R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
             R.id.btnHome, R.id.btnOnClick, R.id.statusBar, R.id.btnGo, R.id.btnOkHttp, R.id.btnOkHttp3, R.id.view, R.id.retrofit, R.id.btnHealth, R.id.btnHealthList})
     public void OnClick(View view) {
 
         switch (view.getId()) {
+            case  R.id.btnPieChart:
+                startActivity(new Intent(getActivity().getApplicationContext(),PieChartActivity.class));
+
+                break;
+            case R.id.btnVolleyTest:
+
+                startActivity(new Intent(getActivity().getApplicationContext(),TestVolleyActivity.class));
+                break;
+            case R.id.btnRadioGroup:
+                startActivity(new Intent(getActivity().getApplicationContext(),MyRadioGroupActivity.class));
+                break;
             case R.id.btnAlbumList:
                 startActivity(new Intent(getActivity().getApplicationContext(),AlbumListActivity.class));
                 break;

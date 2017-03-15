@@ -24,6 +24,23 @@
             android:showDividers="beginning|middle|end">
 
             <Button
+                android:id="@+id/btnPieChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自定义PieChart" />
+            <Button
+                android:id="@+id/btnRadioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自定义radio" />
+
+            <Button
+                android:id="@+id/btnVolleyTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="volley test" />
+
+            <Button
                 android:id="@+id/btnAlbumList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -188,7 +205,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/retrofit"
-            android:text="健康资讯" />
+            android:text="热门标签及volley" />
 
         <Button
             android:id="@+id/btnHealthList"

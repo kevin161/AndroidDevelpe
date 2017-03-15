@@ -75,6 +75,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeNotTranslucent" />
         <activity android:name=".activity.zhihu.NewsDetailActivity" />
+        <activity android:name=".net.volley.TestVolleyActivity"/>
         <activity
             android:name=".activity.custom.NoBoringActionBarActivity"
             android:theme="@style/TransparentTheme" />
@@ -88,7 +89,9 @@
         <activity android:name=".activity.custom.NearBySearchActivity" />
         <activity android:name=".activity.custom.MyViewGroupActivity" />
         <activity android:name=".activity.custom.MyListViewActivity" />
+        <activity android:name=".activity.custom.MyRadioGroupActivity" />
         <activity android:name=".activity.custom.MyProgressBarActivity" />
+        <activity android:name=".activity.custom.PieChartActivity" />
         <activity android:name=".activity.custom.Transform3DActivity" />
         <activity android:name=".activity.custom.ConcatMatrixActivity" />
         <activity android:name=".activity.custom.Win10ProgressActivity" />

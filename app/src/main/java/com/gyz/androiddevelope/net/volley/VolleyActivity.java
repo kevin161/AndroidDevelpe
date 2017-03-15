@@ -1,29 +1,21 @@
 package com.gyz.androiddevelope.net.volley;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
-import android.widget.EditText;
 
 import com.gyz.androiddevelope.R;
-import com.gyz.androiddevelope.engine.AppContants;
-import com.gyz.androiddevelope.net.retrofit.MySubscriber;
-import com.gyz.androiddevelope.net.retrofit.ReUtil;
-import com.gyz.androiddevelope.net.retrofit.RxUtil;
-import com.gyz.androiddevelope.net.volley.bean.BaseInput;
 import com.gyz.androiddevelope.net.volley.bean.HotSearchBean;
-import com.gyz.androiddevelope.net.volley.bean.HtfLoginBean;
 import com.gyz.androiddevelope.net.volley.bean.LastProfitBean;
 import com.gyz.androiddevelope.net.volley.bean.ServiceCheckBean;
-import com.gyz.androiddevelope.util.DeviceUtils;
-import com.gyz.androiddevelope.util.EncryptUtils;
+import com.gyz.androiddevelope.view.TagViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
-import rx.Observable;
-import rx.functions.Func1;
 
 /**
  * @version V1.0
@@ -33,7 +25,9 @@ import rx.functions.Func1;
  */
 public class VolleyActivity extends VolleyBaseActivity {
     private static final String TAG = "VolleyActivity";
-//    @Bind(R.id.edtName)
+    @Bind(R.id.tagViewGroup)
+    TagViewGroup tagViewGroup;
+    //    @Bind(R.id.edtName)
 //    EditText edtName;
 //    @Bind(R.id.edtPwd)
 //    EditText edtPwd;
@@ -43,8 +37,8 @@ public class VolleyActivity extends VolleyBaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_view_group);
+        ButterKnife.bind(this);
 //        setContentView(R.layout.activity_volley_test);
-//        ButterKnife.bind(this);
         getData();
     }
 
@@ -63,9 +57,24 @@ public class VolleyActivity extends VolleyBaseActivity {
 //        checkservice
 //        BaseInput<Object> input1 = ServiceCheckBean.Input.buildInput();
 //        httpRequestEntrance(input1, new MyHttpRequestListener(), HTF_SERVICE_CHECK_TYPE, true, true);
-
-
-
+        List<String> list = new ArrayList<>();
+        list.add("aa");
+        list.add("b");
+        list.add("ccc");
+        list.add("aadddda");
+        list.add("eeee");
+        list.add("ffffffff");
+        list.add("ggggg");
+        list.add("aahhhhhha");
+        list.add("aaiiiiiia");
+        list.add("ajjjjjjaa");
+        list.add("aakkkkka");
+        list.add("aallllla");
+        list.add("aammma");
+        list.add("anaa");
+        list.add("aoaa");
+        list.add("aappppppa");
+        tagViewGroup.addTag(list);
     }
 
 //    @OnClick(R.id.btnHtf)
@@ -105,7 +114,7 @@ public class VolleyActivity extends VolleyBaseActivity {
 //                super.onCompleted();
 //            }
 //        });
-//
+    //
 //    }
 
 
@@ -119,7 +128,7 @@ public class VolleyActivity extends VolleyBaseActivity {
             } else if (iType == HLC_DETAILS_TYPE2) {
                 LastProfitBean lastProfitBean = (LastProfitBean) response;
                 Log.e(TAG, "" + lastProfitBean.lastProfit.info);
-            }else if (iType ==HTF_SERVICE_CHECK_TYPE){
+            } else if (iType == HTF_SERVICE_CHECK_TYPE) {
                 ServiceCheckBean bean = (ServiceCheckBean) response;
             }
         }
