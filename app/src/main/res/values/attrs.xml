@@ -143,4 +143,5 @@
         <attr name="loadingColor" format="color|reference"/>
         <attr name="stopColor" format="color|reference"/>
     </declare-styleable>
+
 </resources>

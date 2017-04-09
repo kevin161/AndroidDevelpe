@@ -84,6 +84,20 @@ public class RainbowCircleView extends View {
         canvas.drawArc(mArcRect, -240, 300, false, paint);
 
 
-        canvas.drawLine(50,50,10,90,paintLine);
+       // canvas.drawLine(50,50,10,90,paintLine);
     }
+
+//    private void test(){
+//        private int colorSweep[] = {getResources().getColor(R.color.color_ffac00),
+//                getResources().getColor(R.color.color_cafe00), getResources().getColor(R.color.color_00fcfb)};
+//        private float colorPosition[] = {0.2f, 0.5f, 1.0f};
+//        private SweepGradient sweepGradient = null;
+//        private void drawArc(Canvas canvas, RectF rectF) {
+//            if(sweepGradient == null) {
+//                sweepGradient = new SweepGradient(getWidth() / 2, getWidth() / 2, colorSweep, colorPosition);
+//                arcPaint.setShader(sweepGradient);
+//            }
+//            canvas.drawArc(rectF, startAngle, unitScale * currVirtuelPercent, false, arcPaint);
+//        }
+//    }
 }

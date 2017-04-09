@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.response_bean.LatestNewsBean;
 import com.gyz.androiddevelope.util.ImageUtils;
+import com.gyz.androiddevelope.util.LogUtils;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -60,12 +61,19 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
     }
 
     public void setTopEntities(List<LatestNewsBean.TopStory> topEntities) {
+        if (topStoriesEntities!=null){
+            topStoriesEntities.clear();
+        }
         this.topStoriesEntities = topEntities;
         reset();
     }
 
     private void reset() {
         views.clear();
+if (myTask !=null){
+        handler.removeCallbacks(myTask);
+    vp.clearOnPageChangeListeners();
+}
         initUI();
     }
 
@@ -75,6 +83,7 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
         vp = (ViewPager) view.findViewById(R.id.vp);
         LinearLayout ll_dot = (LinearLayout) view.findViewById(R.id.ll_dot);
         ll_dot.removeAllViews();
+        iv_dots.clear();
 
         int len = topStoriesEntities.size();
         for (int i = 0; i < len; i++) {
@@ -123,8 +132,10 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
 
     private void startPlay() {
         isAutoPlay = true;
-          myTask = new MyTask(this);
+
+        myTask = new MyTask(this);
         handler.postDelayed(myTask, 3000);
+
     }
 
 
@@ -213,6 +224,7 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
             for (int i = 0; i < iv_dots.size(); i++) {
                 if (i == arg0 - 1) {
                     iv_dots.get(i).setImageResource(R.mipmap.dot_focus);
+                    LogUtils.e("onPageSelected....i"+i);
                 } else {
                     iv_dots.get(i).setImageResource(R.mipmap.dot_blur);
                 }
