@@ -61,7 +61,7 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
     }
 
     public void setTopEntities(List<LatestNewsBean.TopStory> topEntities) {
-        if (topStoriesEntities!=null){
+        if (topStoriesEntities != null) {
             topStoriesEntities.clear();
         }
         this.topStoriesEntities = topEntities;
@@ -70,10 +70,10 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
 
     private void reset() {
         views.clear();
-if (myTask !=null){
-        handler.removeCallbacks(myTask);
-    vp.clearOnPageChangeListeners();
-}
+        if (myTask != null) {
+            handler.removeCallbacks(myTask);
+            vp.clearOnPageChangeListeners();
+        }
         initUI();
     }
 
@@ -104,17 +104,17 @@ if (myTask !=null){
             TextView tv_title = (TextView) fm.findViewById(R.id.tv_title);
             iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
             if (i == 0) {
-                ImageUtils.loadImageByPicasso(context.getApplicationContext(),topStoriesEntities.get(len - 1).getImage(),iv);
+                ImageUtils.loadImageByPicasso(context.getApplicationContext(), topStoriesEntities.get(len - 1).getImage(), iv);
 //                Picasso.with(context).load(topStoriesEntities.get(len - 1).getImage()).into(iv);
                 tv_title.setText(topStoriesEntities.get(len - 1).getTitle());
 
             } else if (i == len + 1) {
-                ImageUtils.loadImageByPicasso(context.getApplicationContext(),topStoriesEntities.get(0).getImage(),iv);
+                ImageUtils.loadImageByPicasso(context.getApplicationContext(), topStoriesEntities.get(0).getImage(), iv);
 //                Picasso.with(context).load(topStoriesEntities.get(0).getImage()).into(iv);
                 tv_title.setText(topStoriesEntities.get(0).getTitle());
 
             } else {
-                ImageUtils.loadImageByPicasso(context.getApplicationContext(),topStoriesEntities.get(i-1).getImage(),iv);
+                ImageUtils.loadImageByPicasso(context.getApplicationContext(), topStoriesEntities.get(i - 1).getImage(), iv);
 //                Picasso.with(context).load(topStoriesEntities.get(i-1).getImage()).into(iv);
                 tv_title.setText(topStoriesEntities.get(i - 1).getTitle());
             }
@@ -139,18 +139,18 @@ if (myTask !=null){
     }
 
 
-   static class MyTask implements Runnable {
-            private final WeakReference<MarqueeView> marqueeViewWeakReference;
+    static class MyTask implements Runnable {
+        private final WeakReference<MarqueeView> marqueeViewWeakReference;
 
-       public MyTask(MarqueeView mMarqueeView){
-           this.marqueeViewWeakReference = new WeakReference<MarqueeView>(mMarqueeView);
-       }
+        public MyTask(MarqueeView mMarqueeView) {
+            this.marqueeViewWeakReference = new WeakReference<MarqueeView>(mMarqueeView);
+        }
 
 
         @Override
         public void run() {
             MarqueeView marqueeView = marqueeViewWeakReference.get();
-            if (marqueeView!=null) {
+            if (marqueeView != null) {
                 if (marqueeView.isAutoPlay) {
                     marqueeView.currentItem = marqueeView.currentItem % (marqueeView.topStoriesEntities.size() + 1) + 1;
                     if (marqueeView.currentItem == 1) {
@@ -224,7 +224,7 @@ if (myTask !=null){
             for (int i = 0; i < iv_dots.size(); i++) {
                 if (i == arg0 - 1) {
                     iv_dots.get(i).setImageResource(R.mipmap.dot_focus);
-                    LogUtils.e("onPageSelected....i"+i);
+                    LogUtils.e("onPageSelected....i" + i);
                 } else {
                     iv_dots.get(i).setImageResource(R.mipmap.dot_blur);
                 }
@@ -234,7 +234,7 @@ if (myTask !=null){
 
     }
 
-    public void removeCallback(){
+    public void removeCallback() {
         handler.removeCallbacks(myTask);
     }
 
