@@ -8,7 +8,7 @@
     <com.gyz.androiddevelope.view.HorizontalProgressBar
         android:id="@+id/progress"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="@dimen/dp_12"
         android:layout_marginRight="@dimen/dp_12"
         android:layout_marginTop="@dimen/dp_45"
@@ -16,15 +16,18 @@
         app:textColor="@color/color_f98435"
         app:textSize="16sp" />
 
-<Button
-    android:layout_width="wrap_content"
-    android:id="@+id/btn"
-    android:text="add"
-    android:layout_height="wrap_content" />
+    <com.gyz.androiddevelope.view.CustomSeekbar
+        android:id="@+id/myCustomSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp" />
+    <com.gyz.androiddevelope.view.MySeekBar
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
 
     <com.gyz.androiddevelope.view.LoveLayout
         android:id="@+id/loveLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

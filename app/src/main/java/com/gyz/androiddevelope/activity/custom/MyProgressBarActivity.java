@@ -7,10 +7,13 @@ import android.widget.Button;
 
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.base.BaseActivity;
+import com.gyz.androiddevelope.util.LogUtils;
+import com.gyz.androiddevelope.view.CustomSeekbar;
 import com.gyz.androiddevelope.view.HorizontalProgressBar;
 import com.gyz.androiddevelope.view.LoveLayout;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,8 +31,8 @@ public class MyProgressBarActivity extends BaseActivity {
     private static final String TAG = "MyProgressBarActivity";
     @Bind(R.id.progress)
     HorizontalProgressBar progress;
-    @Bind(R.id.btn)
-    Button btn;
+    @Bind(R.id.myCustomSeekBar)
+    CustomSeekbar myCustomSeekBar;
     @Bind(R.id.loveLayout)
     LoveLayout loveLayout;
 
@@ -63,6 +66,22 @@ public class MyProgressBarActivity extends BaseActivity {
                 });
             }
         }, 100, 200);
+        //===============myCustomSeekBar 设置数据========================================
+          ArrayList<String> volume_sections = new ArrayList<String>();
+        volume_sections.add("静音");
+        volume_sections.add("低");
+        volume_sections.add("中");
+        volume_sections.add("高");
+        myCustomSeekBar.initData(volume_sections);
+        myCustomSeekBar.setProgress(2);
+        //activity实现了下面的接口ResponseOnTouch，每次touch会回调onTouchResponse
+        myCustomSeekBar.setResponseOnTouch(new CustomSeekbar.ResponseOnTouch() {
+            @Override
+            public void onTouchResponse(int currentSelect) {
+                LogUtils.e("onTouchResponse....."+currentSelect);
+            }
+        });
+
     }
 
     private static final int MSG_UPDATE = 23;
@@ -87,10 +106,6 @@ public class MyProgressBarActivity extends BaseActivity {
         }
     }
 
-    @OnClick(R.id.btn)
-    public void onClick() {
-
-    }
 
     @Override
     protected void onDestroy() {
