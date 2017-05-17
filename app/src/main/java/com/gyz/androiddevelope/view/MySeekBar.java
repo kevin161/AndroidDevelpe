@@ -187,12 +187,24 @@ public class MySeekBar extends View {
     }
 
     private void responseTouch(int x, int y){
-        if(x <= width-linePadding/2) {
-            curSection = (int) ((x + perUsableLineLen / 3) / perUsableLineLen);
-        }else{
+
+        float free = linePadding+freeLineLen;
+        if (x <(free+perUsableLineLen/2)){
+            curSection = 0;
+        }else {
+            float actLen = x-free;
+            int baseSection = (int) (actLen/perUsableLineLen);
+            int surplusLen =(int) (actLen%perUsableLineLen);
+            if (surplusLen >(perUsableLineLen/2)){
+                curSection = baseSection+1;
+            }else {
+                curSection = baseSection;
+            }
+        }
+
+        if (curSection>= sectionTitle.size()){
             curSection = sectionTitle.size()-1;
         }
-        LogUtils.e(tag,"curSection====="+curSection);
         invalidate();
     }
 
