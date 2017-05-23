@@ -259,3 +259,23 @@ native <methods>;
 -dontwarn com.tencent.bugly.**
 -keep public class com.tencent.bugly.**{*;}
 
+#微信
+-keep class com.tencent.mm.opensdk.** {
+   *;
+}
+-keep class com.tencent.wxop.** {
+   *;
+}
+-keep class com.tencent.mm.sdk.** {
+   *;
+}
+
+#shareSDK
+-keep class cn.sharesdk.**{*;}
+	-keep class com.sina.**{*;}
+	-keep class **.R$* {*;}
+	-keep class **.R{*;}
+	-keep class com.mob.**{*;}
+	-dontwarn com.mob.**
+	-dontwarn cn.sharesdk.**
+	-dontwarn **.R$*

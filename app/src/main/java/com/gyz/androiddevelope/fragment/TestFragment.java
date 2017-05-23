@@ -68,6 +68,8 @@ import java.lang.reflect.Method;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 import okhttp3.Request;
 import rx.Observable;
 import rx.Subscriber;
@@ -109,6 +111,7 @@ public class TestFragment extends BaseFragment {
         context = getContext();
         dlg = Utils.createProgressDialog(context, this.getString(R.string.str_loading));
     }
+
     @Override
     public void initData() {
     }
@@ -123,47 +126,53 @@ public class TestFragment extends BaseFragment {
         return "test";
     }
 
-    @OnClick({R.id.btnAutoScroll,R.id.btnPieChart,R.id.btnVolleyTest,R.id.btnRadioGroup, R.id.btnAlbumList,R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
+    @OnClick({R.id.btnShareSdk, R.id.btnAutoScroll, R.id.btnPieChart, R.id.btnVolleyTest, R.id.btnRadioGroup, R.id.btnAlbumList, R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
             R.id.btnHome, R.id.btnOnClick, R.id.statusBar, R.id.btnGo, R.id.btnOkHttp, R.id.btnOkHttp3, R.id.view, R.id.retrofit, R.id.btnHealth, R.id.btnHealthList})
     public void OnClick(View view) {
 
         switch (view.getId()) {
+            case R.id.btnShareSdk:
+                //分享sdk
+                shareSdk();
+
+                break;
+
             case R.id.btnAutoScroll:
                 break;
-            case  R.id.btnPieChart:
-                startActivity(new Intent(getActivity().getApplicationContext(),PieChartActivity.class));
+            case R.id.btnPieChart:
+                startActivity(new Intent(getActivity().getApplicationContext(), PieChartActivity.class));
 
                 break;
             case R.id.btnVolleyTest:
 
-                startActivity(new Intent(getActivity().getApplicationContext(),TestVolleyActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(), TestVolleyActivity.class));
                 break;
             case R.id.btnRadioGroup:
-                startActivity(new Intent(getActivity().getApplicationContext(),MyRadioGroupActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(), MyRadioGroupActivity.class));
                 break;
             case R.id.btnAlbumList:
-                startActivity(new Intent(getActivity().getApplicationContext(),AlbumListActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(), AlbumListActivity.class));
                 break;
             case R.id.btnHotFix:
-                startActivity(new Intent(getActivity().getApplicationContext(),HotFixActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(), HotFixActivity.class));
                 break;
             case R.id.btnSearchView:
-                startActivity(new Intent(getActivity().getApplicationContext(),SearchViewActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(), SearchViewActivity.class));
                 break;
             case R.id.btnImageCrap:
-                startActivity(new Intent(getActivity().getApplicationContext(),ImageCrapActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(), ImageCrapActivity.class));
                 break;
             case R.id.flickerProgressBar:
                 startActivity(new Intent(getContext(), FlickerProgressActivity.class));
                 break;
             case R.id.btnWinLoad:
                 startActivity(new Intent(getContext(), Win10ProgressActivity.class));
-            break;
+                break;
             case R.id.btnDashView:
-                startActivity(new Intent(getContext(),DashBoardActivity.class));
+                startActivity(new Intent(getContext(), DashBoardActivity.class));
                 break;
             case R.id.btnTouchView:
-                startActivity(new Intent(getContext(),GradientActivity.class));
+                startActivity(new Intent(getContext(), GradientActivity.class));
                 break;
             case R.id.btnQQslidingMenu:
 
@@ -175,10 +184,10 @@ public class TestFragment extends BaseFragment {
                 break;
             case R.id.btnAndfix:
                 String str = "abcdefg123";
-                String encodeStr = new String(Base64.encode(str.getBytes(), Base64.DEFAULT)) ;
+                String encodeStr = new String(Base64.encode(str.getBytes(), Base64.DEFAULT));
                 LogUtils.e(TAG, "encodeStr===" + encodeStr);
 
-                String decodeStr =new String( Base64.decode(encodeStr.getBytes(), Base64.DEFAULT)) ;
+                String decodeStr = new String(Base64.decode(encodeStr.getBytes(), Base64.DEFAULT));
                 LogUtils.e(TAG, "decodeStr====" + decodeStr);
 
 ////                AndFix
@@ -253,7 +262,7 @@ public class TestFragment extends BaseFragment {
                 break;
 
             case R.id.btnHealth:
-            startActivity(new Intent(getActivity().getApplicationContext(), VolleyActivity.class));
+                startActivity(new Intent(getActivity().getApplicationContext(), VolleyActivity.class));
 //                RxUtil.subscribeAll(new Func1<String, Observable<Tngou>>() {
 //                    @Override
 //                    public Observable<Tngou> call(String s) {
@@ -412,19 +421,19 @@ public class TestFragment extends BaseFragment {
 
                 OkHttpClientManager.postAsyn("http://www.weather.com.cn/data/sk/101010100.html"
                         , params, new OkHttpClientManager.ResultCallback<Axiba>() {
-                    @Override
-                    public void onError(Request request, Exception e) {
+                            @Override
+                            public void onError(Request request, Exception e) {
 
-                        Log.e(TAG, "request=" + request + "-----e=" + e);
-                        e.printStackTrace();
-                    }
+                                Log.e(TAG, "request=" + request + "-----e=" + e);
+                                e.printStackTrace();
+                            }
 
-                    @Override
-                    public void onResponse(Axiba response) {
-                        Log.e(TAG, "response=" + response.getWeatherinfo().getCity() + "   " + response.getWeatherinfo().getWD());
+                            @Override
+                            public void onResponse(Axiba response) {
+                                Log.e(TAG, "response=" + response.getWeatherinfo().getCity() + "   " + response.getWeatherinfo().getWD());
 
-                    }
-                }, null);
+                            }
+                        }, null);
                 break;
 
             case R.id.btnOkHttp:
@@ -456,7 +465,7 @@ public class TestFragment extends BaseFragment {
 
             case R.id.btnOnClick:
 
-                startActivity(new Intent(getContext(),MyRecyclerActivity.class));
+                startActivity(new Intent(getContext(), MyRecyclerActivity.class));
 
                 break;
 
@@ -475,6 +484,35 @@ public class TestFragment extends BaseFragment {
                 ShowInfoActivity.startActivity(context);
 
         }
+
+    }
+
+    private void shareSdk() {
+
+        ShareSDK.initSDK(getActivity());
+        OnekeyShare oks = new OnekeyShare();
+//关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+// title标题，印象笔记、邮箱、信息、微信、人人网和QQ空间等使用
+        oks.setTitle("标题");
+// titleUrl是标题的网络链接，QQ和QQ空间等使用
+        oks.setTitleUrl("http://sharesdk.cn");
+// text是分享文本，所有平台都需要这个字段
+        oks.setText("我是分享文本");
+// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+//oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+// url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl("http://sharesdk.cn");
+// comment是我对这条分享的评论，仅在人人网和QQ空间使用
+        oks.setComment("我是测试评论文本");
+// site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+// siteUrl是分享此内容的网站地址，仅在QQ空间使用
+        oks.setSiteUrl("http://sharesdk.cn");
+
+// 启动分享GUI
+        oks.show(getActivity());
 
     }
 

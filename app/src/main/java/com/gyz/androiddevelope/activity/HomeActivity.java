@@ -76,6 +76,8 @@ public class HomeActivity extends BaseActivity
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         Bugly.init(getApplicationContext(),AppContants.BUGLY_APP_ID,AppContants.isDebug);
+        //微信
+
 
         getSwipeBackLayout().setEnableGesture(false);
         setSupportActionBar(toolbar);
@@ -112,6 +114,7 @@ public class HomeActivity extends BaseActivity
             mUserId = (String) SPUtils.get(this, AppContants.USERID, "");
         }
     }
+
 
     @Override
     public void onBackPressed() {

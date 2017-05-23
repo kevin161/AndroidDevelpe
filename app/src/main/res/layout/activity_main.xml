@@ -24,6 +24,11 @@
             android:showDividers="beginning|middle|end">
 
             <Button
+                android:id="@+id/btnShareSdk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分享测试" />
+            <Button
                 android:id="@+id/btnAutoScroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -26,6 +26,7 @@ public class AppContants {
 
 
     public static final String BUGLY_APP_ID = "900021343";
+    public static final String WEIXIN_APP_ID = "wx7c330bddec9f3191";
 
     public static final String BASE_URL_ZHIHU = "http://news-at.zhihu.com/api/4/";
     public static final String BASE_URL_TNGOU = "http://www.tngou.net/";
