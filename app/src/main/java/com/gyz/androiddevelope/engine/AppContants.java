@@ -2,6 +2,8 @@ package com.gyz.androiddevelope.engine;
 
 import android.os.Environment;
 
+import java.io.File;
+
 /**
  * @author: guoyazhou
  * @date: 2016-01-22 15:21
@@ -35,6 +37,7 @@ public class AppContants {
 
 
     public static final String FILE_NAME = "gyz";
+     public  static  final String FILE_PATH = new File(Environment.getExternalStorageDirectory()+"/"+FILE_NAME).getAbsolutePath();
     //,
     public static final String SEPARATECOMMA=",";
 

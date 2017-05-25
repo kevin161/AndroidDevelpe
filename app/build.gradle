@@ -29,9 +29,12 @@ android {
             }
         }
 
-//        debug {
-//            storeFile file("./keystore/debug.keystore")
-//        }
+        debug {
+            storeFile file("E:/work/ylb/hlc-android/yonglibao-release.keystore")
+            storePassword "227df7aca2e27222e89d0a43b37a331c"
+            keyAlias "www.yonglibao.com"
+            keyPassword "a2e27222e89d0a43"
+        }
     }
 
 

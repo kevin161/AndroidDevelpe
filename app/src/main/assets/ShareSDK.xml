@@ -99,9 +99,7 @@
         SortId="4"
         AppId="wx7c330bddec9f3191"
         AppSecret="a3a726f84fd4e57a5a46483b95085dc7"
-		userName="gh_afb25ac019c9"
-		path="/page/API/pages/share/share"
-        BypassApproval="true"
+        BypassApproval="false"
         Enable="true" />
     
     <WechatMoments

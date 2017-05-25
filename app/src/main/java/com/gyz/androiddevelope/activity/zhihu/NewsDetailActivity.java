@@ -4,12 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -30,10 +31,14 @@ import com.gyz.androiddevelope.net.retrofit.RxUtil;
 import com.gyz.androiddevelope.response_bean.NewsDetailBean;
 import com.gyz.androiddevelope.response_bean.StoryExtraBean;
 import com.gyz.androiddevelope.util.ImageUtils;
+import com.gyz.androiddevelope.util.LogUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
+import cn.sharesdk.onekeyshare.OnekeyShareTheme;
 import rx.Observable;
 import rx.functions.Func1;
 
@@ -90,6 +95,7 @@ public class NewsDetailActivity extends BaseActivity implements Toolbar.OnMenuIt
         setContentView(R.layout.activity_news_detail);
         ButterKnife.bind(this);
 
+        ShareSDK.initSDK(this);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -182,8 +188,7 @@ public class NewsDetailActivity extends BaseActivity implements Toolbar.OnMenuIt
         String msg = "";
         switch (view.getId()) {
             case R.id.imgShare:
-                msg += "Click share ";
-                shareAuth();
+                showShare(NewsDetailActivity.this,null,true);
                 break;
 
             case R.id.imgComment:
@@ -203,34 +208,98 @@ public class NewsDetailActivity extends BaseActivity implements Toolbar.OnMenuIt
 
     private void shareAuth() {
 
+
+        ShareSDK.initSDK(NewsDetailActivity.this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+         if (detailBean==null){
+             return;
+         }
+// text是分享文本，所有平台都需要这个字段
+        oks.setText( detailBean.getTitle());
+// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+//oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+// url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl(detailBean.getShareUrl());
+// site是分享此内容的网站名称，仅在QQ空间使用
+        oks.setSite(getString(R.string.app_name));
+
+// 启动分享GUI
+        oks.show(NewsDetailActivity.this);
+
     }
 
+
+    /**
+     * 演示调用ShareSDK执行分享
+     *
+     * @param context
+     * @param platformToShare  指定直接分享平台名称（一旦设置了平台名称，则九宫格将不会显示）
+     * @param showContentEdit  是否显示编辑页
+     */
+    public  void showShare(Context context, String platformToShare, boolean showContentEdit) {
+        OnekeyShare oks = new OnekeyShare();
+        oks.setSilent(!showContentEdit);
+        if (platformToShare != null) {
+            oks.setPlatform(platformToShare);
+        }
+        //ShareSDK快捷分享提供两个界面第一个是九宫格 CLASSIC  第二个是SKYBLUE
+        oks.setTheme(OnekeyShareTheme.CLASSIC);
+        // 令编辑页面显示为Dialog模式
+        oks.setDialogMode();
+        // 在自动授权时可以禁用SSO方式
+        oks.disableSSOWhenAuthorize();
+        //oks.setAddress("12345678901"); //分享短信的号码和邮件的地址
+        oks.setTitle(detailBean.getTitle());
+        oks.setTitleUrl("http://mob.com");
+        oks.setText("test");
+        //oks.setImagePath("/sdcard/test-pic.jpg");  //分享sdcard目录下的图片
+        oks.setImageUrl(detailBean.getImage());
+        oks.setUrl(detailBean.getShareUrl()); //微信不绕过审核分享链接h
+        //filePath是待分享应用程序的本地路劲，仅在微信（易信）好友和Dropbox中使用，否则可以不提供
+        oks.setFilePath(AppContants.FILE_PATH);  //filePath用于视频分享
+       // oks.setComment("test"); //我对这条分享的评论，仅在人人网和QQ空间使用，否则可以不提供
+        oks.setSite(context.getString(R.string.app_name));  //QZone分享完之后返回应用时提示框上显示的名称
+        oks.setSiteUrl("http://mob.com");//QZone分享参数
+//        oks.setVenueName("ShareSDK");
+//        oks.setVenueDescription("This is a beautiful place!");
+//        oks.setLatitude(23.169f);
+//        oks.setLongitude(112.908f);
+        // 将快捷分享的操作结果将通过OneKeyShareCallback回调
+        // oks.setCallback(new OneKeyShareCallback());
+        // 去自定义不同平台的字段内容
+        // oks.setShareContentCustomizeCallback(new
+        // ShareContentCustomizeDemo());
+        // 在九宫格设置自定义的图标
+//        Bitmap logo = BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_launcher);
+//        String label = "ShareSDK";
+//        View.OnClickListener listener = new View.OnClickListener() {
+//            public void onClick(View v) {
+//
+//            }
+//        };
+//        oks.setCustomerLogo(logo, label, listener);
+
+        // 为EditPage设置一个背景的View
+        //oks.setEditPageBackground(getPage());
+        // 隐藏九宫格中的新浪微博
+        // oks.addHiddenPlatform(SinaWeibo.NAME);
+
+        // String[] AVATARS = {
+        // 		"http://99touxiang.com/public/upload/nvsheng/125/27-011820_433.jpg",
+        // 		"http://img1.2345.com/duoteimg/qqTxImg/2012/04/09/13339485237265.jpg",
+        // 		"http://diy.qqjay.com/u/files/2012/0523/f466c38e1c6c99ee2d6cd7746207a97a.jpg",
+        // 		"http://diy.qqjay.com/u2/2013/0422/fadc08459b1ef5fc1ea6b5b8d22e44b4.jpg",
+        // 		"http://img1.2345.com/duoteimg/qqTxImg/2012/04/09/13339510584349.jpg",
+        // 		"http://diy.qqjay.com/u2/2013/0401/4355c29b30d295b26da6f242a65bcaad.jpg" };
+        // oks.setImageArray(AVATARS);              //腾讯微博和twitter用此方法分享多张图片，其他平台不可以
+
+        // 启动分享
+        oks.show(context);
+    }
     @Override
     public boolean onMenuItemClick(MenuItem item) {
-        String msg = "";
-        switch (item.getItemId()) {
-
-            case R.id.imgShare:
-                msg += "Click share";
-                shareAuth();
-                break;
-
-            case R.id.imgComment:
-                msg += "Click imgComment";
-                break;
-
-            case R.id.imgZan:
-                msg += "Click imgZan";
-                break;
-
-        }
-
-        if (!msg.equals("")) {
-            Toast.makeText(NewsDetailActivity.this, msg, Toast.LENGTH_SHORT).show();
-        }
         return false;
     }
-
-
-
 }
