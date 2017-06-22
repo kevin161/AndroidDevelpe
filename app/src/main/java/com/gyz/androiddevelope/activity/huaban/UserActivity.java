@@ -114,7 +114,7 @@ public class UserActivity extends BaseActivity implements OnSwipeRefreshFragment
         userId = getIntent().getStringExtra(TYPE_KEY);
 
         String userId = (String) SPUtils.get(this, AppContants.USERID, "");
-        isMe = this.userId.equals(userId);
+        isMe = userId.equals(this.userId);
     }
 
     @Override

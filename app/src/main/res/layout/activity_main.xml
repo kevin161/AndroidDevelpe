@@ -24,6 +24,11 @@
             android:showDividers="beginning|middle|end">
 
             <Button
+                android:id="@+id/btnFingerPrint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="指纹技术" />
+            <Button
                 android:id="@+id/btnShareSdk"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

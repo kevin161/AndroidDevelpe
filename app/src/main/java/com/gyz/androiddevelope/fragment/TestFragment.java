@@ -21,6 +21,7 @@ import com.gyz.androiddevelope.activity.custom.CircleActivity;
 import com.gyz.androiddevelope.activity.custom.ConcatMatrixActivity;
 import com.gyz.androiddevelope.activity.custom.DashBoardActivity;
 import com.gyz.androiddevelope.activity.custom.DisScrollActivity;
+import com.gyz.androiddevelope.activity.custom.FingerPrintActivity;
 import com.gyz.androiddevelope.activity.custom.FlickerProgressActivity;
 import com.gyz.androiddevelope.activity.custom.FlyViewActivity;
 import com.gyz.androiddevelope.activity.custom.GradientActivity;
@@ -126,11 +127,15 @@ public class TestFragment extends BaseFragment {
         return "test";
     }
 
-    @OnClick({R.id.btnShareSdk, R.id.btnAutoScroll, R.id.btnPieChart, R.id.btnVolleyTest, R.id.btnRadioGroup, R.id.btnAlbumList, R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
+    @OnClick({R.id.btnFingerPrint,R.id.btnShareSdk, R.id.btnAutoScroll, R.id.btnPieChart, R.id.btnVolleyTest, R.id.btnRadioGroup, R.id.btnAlbumList, R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
             R.id.btnHome, R.id.btnOnClick, R.id.statusBar, R.id.btnGo, R.id.btnOkHttp, R.id.btnOkHttp3, R.id.view, R.id.retrofit, R.id.btnHealth, R.id.btnHealthList})
     public void OnClick(View view) {
 
         switch (view.getId()) {
+            case R.id.btnFingerPrint:
+                startActivity(new Intent(getActivity().getApplicationContext(), FingerPrintActivity.class));
+                break;
+
             case R.id.btnShareSdk:
                 //分享sdk
                 shareSdk();
