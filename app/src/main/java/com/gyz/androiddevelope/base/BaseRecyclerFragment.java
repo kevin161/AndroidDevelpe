@@ -11,6 +11,7 @@ import com.gyz.androiddevelope.adapter.BaseRecyclerAdapter;
 import com.gyz.androiddevelope.listener.OnRecyclerRefreshListener;
 import com.gyz.androiddevelope.listener.RecycleViewOnScrollListener;
 import com.gyz.androiddevelope.util.LogUtils;
+import com.gyz.androiddevelope.view.RecyclerSpace;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -59,6 +60,7 @@ public abstract class BaseRecyclerFragment extends BaseFragment implements OnRec
         mAdapter = getAdapter();
         recyclerView.setAdapter(mAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());//设置默认动画
+        recyclerView.addItemDecoration(new RecyclerSpace(5));
         recyclerView.addOnScrollListener(new RecycleViewOnScrollListener() {
             @Override
             public void showFab() {

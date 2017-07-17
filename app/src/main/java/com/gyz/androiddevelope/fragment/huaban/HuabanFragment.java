@@ -3,6 +3,8 @@ package com.gyz.androiddevelope.fragment.huaban;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
@@ -145,7 +147,6 @@ public class HuabanFragment extends BaseRecyclerFragment {
 //                } else {
                     ImageDetailActivity.startActivity(getContext(), bean);
 //                }
-
 
             }
 
