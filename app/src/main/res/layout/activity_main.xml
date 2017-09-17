@@ -24,6 +24,16 @@
             android:showDividers="beginning|middle|end">
 
             <Button
+                android:id="@+id/btnDragLayout"
+                android:layout_width="wrap_content"
+                android:text="dragActivity"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btnPermission"
+                android:layout_width="wrap_content"
+                android:text="权限申请"
+                android:layout_height="wrap_content" />
+            <Button
                 android:id="@+id/btnFingerPrint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.gyz.androiddevelope.activity.custom.CircleActivity;
 import com.gyz.androiddevelope.activity.custom.ConcatMatrixActivity;
 import com.gyz.androiddevelope.activity.custom.DashBoardActivity;
 import com.gyz.androiddevelope.activity.custom.DisScrollActivity;
+import com.gyz.androiddevelope.activity.custom.DragLayoutActivity;
 import com.gyz.androiddevelope.activity.custom.FingerPrintActivity;
 import com.gyz.androiddevelope.activity.custom.FlickerProgressActivity;
 import com.gyz.androiddevelope.activity.custom.FlyViewActivity;
@@ -36,6 +38,7 @@ import com.gyz.androiddevelope.activity.custom.MyRecyclerActivity;
 import com.gyz.androiddevelope.activity.custom.MyWebActivity;
 import com.gyz.androiddevelope.activity.custom.NearBySearchActivity;
 import com.gyz.androiddevelope.activity.custom.NoBoringActionBarActivity;
+import com.gyz.androiddevelope.activity.custom.PermissionActivity;
 import com.gyz.androiddevelope.activity.custom.PieChartActivity;
 import com.gyz.androiddevelope.activity.custom.QQSlidingActivity;
 import com.gyz.androiddevelope.activity.custom.SearchViewActivity;
@@ -47,6 +50,8 @@ import com.gyz.androiddevelope.activity.custom.TransformActivity;
 import com.gyz.androiddevelope.activity.custom.WaveActivity;
 import com.gyz.androiddevelope.activity.custom.Win10ProgressActivity;
 import com.gyz.androiddevelope.activity.huaban.LoginActivity;
+import com.gyz.androiddevelope.util.permission.PermissionDenied;
+import com.gyz.androiddevelope.util.permission.PermissionGrant;
 import com.gyz.androiddevelope.base.BaseFragment;
 import com.gyz.androiddevelope.engine.AppContants;
 import com.gyz.androiddevelope.engine.User;
@@ -60,6 +65,8 @@ import com.gyz.androiddevelope.request_bean.ReqUserInfoBean;
 import com.gyz.androiddevelope.response_bean.Axiba;
 import com.gyz.androiddevelope.response_bean.UserInfo;
 import com.gyz.androiddevelope.util.LogUtils;
+import com.gyz.androiddevelope.util.permission.PermissionUtils;
+import com.gyz.androiddevelope.util.ToastUtil;
 import com.gyz.androiddevelope.util.Utils;
 import com.gyz.androiddevelope.view.PwdView;
 import com.gyz.androiddevelope.view.parallax.SplashActivity;
@@ -81,6 +88,7 @@ public class TestFragment extends BaseFragment {
     public static final String TAG = "TestFragment";
     public static final int GO_TO_INFO = 3001;
 
+    private static final int REQUECT_CODE_CALL_PHONE = 3;
     @Bind(R.id.btnOnClick)
     Button btnOnClick;
     @Bind(R.id.txtInfo)
@@ -127,11 +135,20 @@ public class TestFragment extends BaseFragment {
         return "test";
     }
 
-    @OnClick({R.id.btnFingerPrint,R.id.btnShareSdk, R.id.btnAutoScroll, R.id.btnPieChart, R.id.btnVolleyTest, R.id.btnRadioGroup, R.id.btnAlbumList, R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
+    @OnClick({R.id.btnPermission, R.id.btnDragLayout, R.id.btnFingerPrint, R.id.btnShareSdk, R.id.btnAutoScroll, R.id.btnPieChart, R.id.btnVolleyTest, R.id.btnRadioGroup, R.id.btnAlbumList, R.id.btnHotFix, R.id.btnSearchView, R.id.btnImageCrap, R.id.flickerProgressBar, R.id.btnWinLoad, R.id.btnDashView, R.id.btnTouchView, R.id.btnslidingMenu, R.id.btnQQslidingMenu, R.id.btnParallax, R.id.btnDisscrollView, R.id.btnTransform, R.id.btnAndfix, R.id.btnToolbar, R.id.btnWebView, R.id.btnProgress, R.id.btnMyListview, R.id.btnWave, R.id.noToolBar, R.id.btnCalendar, R.id.btnMCalendar, R.id.btnM, R.id.btnFly, R.id.btnNearBy, R.id.btnMatrix,
             R.id.btnHome, R.id.btnOnClick, R.id.statusBar, R.id.btnGo, R.id.btnOkHttp, R.id.btnOkHttp3, R.id.view, R.id.retrofit, R.id.btnHealth, R.id.btnHealthList})
     public void OnClick(View view) {
 
         switch (view.getId()) {
+            case  R.id.btnDragLayout:
+                startActivity(new Intent(getContext(),DragLayoutActivity.class));
+                break;
+            case R.id.btnPermission:
+                startActivity(new Intent(getContext(), PermissionActivity.class));
+//                if (!PermissionUtils.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.CALL_PHONE, REQUECT_CODE_CALL_PHONE)) {
+//                    PermissionUtils.requestPermissions(TestFragment.this, REQUECT_CODE_CALL_PHONE, Manifest.permission.CALL_PHONE);
+//                }
+                break;
             case R.id.btnFingerPrint:
                 startActivity(new Intent(getActivity().getApplicationContext(), FingerPrintActivity.class));
                 break;
@@ -544,5 +561,23 @@ public class TestFragment extends BaseFragment {
 //        super.onDestroyView();
 //        ButterKnife.unbind(this);
 //    }
+
+    @PermissionGrant(REQUECT_CODE_CALL_PHONE)
+    public void requestCallPhoneSuccess() {
+        ToastUtil.showShort(getContext(), "申请成功！");
+    }
+
+    @PermissionDenied(REQUECT_CODE_CALL_PHONE)
+    public void requestCallPhoneFailed() {
+        ToastUtil.showShort(getContext(), "申请失败！");
+    }
+
+
+
+        @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        PermissionUtils.onRequestPermissionsResult(this,requestCode, permissions, grantResults);
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 
 }
