@@ -143,5 +143,50 @@
         <attr name="loadingColor" format="color|reference"/>
         <attr name="stopColor" format="color|reference"/>
     </declare-styleable>
+//滚动刻度尺====================================
+    <declare-styleable name="BaseScaleView">
+        <attr name="lf_scale_view_max" format="integer" />
+        <attr name="lf_scale_view_min" format="integer" />
+        <attr name="lf_scale_view_height" format="dimension" />
+        <attr name="lf_scale_view_margin" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="LoopScaleView">
+        <!--可视范围内显示的大刻度数-->
+        <attr name="maxShowItem" format="integer"/>
+        <!--最大刻度值-->
+        <attr name="maxValue" format="integer"/>
+        <!--一个刻度表示的值的大小-->
+        <attr name="oneItemValue" format="integer"/>
+        <!--指针颜色-->
+        <attr name="cursorColor" format="color"/>
+        <!--刻度文字颜色-->
+        <attr name="scaleTextColor" format="color"/>
+        <!--指针图标，颜色和这个属性二选一-->
+        <attr name="cursorMap" format="reference"/>
+    </declare-styleable>
 
+    <declare-styleable name="RulerView">
+        <!--最大刻度-->
+        <attr name="max_value" format="dimension" />
+        <!--最小刻度-->
+        <attr name="min_value" format="dimension" />
+        <!--刻度字体大小-->
+        <attr name="scale_text_size" format="dimension" />
+        <!--刻度字体颜色-->
+        <attr name="scale_text_color" format="color" />
+        <!--刻度超过颜色-->
+        <attr name="scale_select_color" format="color" />
+        <!--刻度超过颜色背景-->
+        <attr name="scale_select_background_color" format="color" />
+        <!--刻度未超颜色-->
+        <attr name="scale_unselect_color" format="color" />
+        <!--标记颜色-->
+        <attr name="tag_color" format="color" />
+        <!--标尺开始显示位置-->
+        <attr name="start_location" format="dimension" />
+        <!--一屏显示Item-->
+        <attr name="show_item_size" format="integer" />
+        <!--一个刻度的大小-->
+        <attr name="one_item_value" format="integer" />
+    </declare-styleable>
 </resources>

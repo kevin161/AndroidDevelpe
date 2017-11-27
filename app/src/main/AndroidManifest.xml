@@ -93,6 +93,7 @@
         <activity android:name=".activity.custom.NearBySearchActivity" />
         <activity android:name=".activity.custom.PermissionActivity" />
         <activity android:name=".activity.custom.DragLayoutActivity" />
+        <activity android:name=".activity.custom.ScaleViewActivity" />
         <activity android:name=".activity.custom.MyViewGroupActivity" />
         <activity android:name=".activity.custom.MyListViewActivity" />
         <activity android:name=".activity.custom.MyRadioGroupActivity" />

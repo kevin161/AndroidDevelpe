@@ -100,7 +100,7 @@ public abstract class BaseActivity extends AppCompatActivity implements SwipeBac
      */
     public void dialogShow(boolean canCancel) {
         if (myLoadingNowPageDialog == null) {
-            myLoadingNowPageDialog = new WaitingDialog(this);
+            myLoadingNowPageDialog = new WaitingDialog(getApplicationContext());
         }
         myLoadingNowPageDialog.setCanceledOnTouchOutside(canCancel);
         myLoadingNowPageDialog.startAnimation();

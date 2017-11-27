@@ -24,6 +24,11 @@
             android:showDividers="beginning|middle|end">
 
             <Button
+                android:id="@+id/btnScaleView"
+                android:layout_width="wrap_content"
+                android:text="刻度尺"
+                android:layout_height="wrap_content" />
+            <Button
                 android:id="@+id/btnDragLayout"
                 android:layout_width="wrap_content"
                 android:text="dragActivity"

@@ -20,7 +20,7 @@ public class ImageUtils {
 
     public static void loadImageByPicasso(Context context, String imgUrl, ImageView imageView) {
 
-        boolean boo = (boolean) SPUtils.get(context, AppContants.SP_LOAD_PIC_BY_MOBILE_NET, false);
+        boolean boo = (boolean) SPUtils.get(context, AppContants.SP_LOAD_PIC_BY_MOBILE_NET, true);
         if (boo) {
 
             Picasso.with(context).load(imgUrl).into(imageView);
@@ -38,7 +38,7 @@ public class ImageUtils {
 
     public static void loadImageByFresco(Context context, SimpleDraweeView simpleDraweeView, String picUrl) {
 
-        boolean boo = (boolean) SPUtils.get(context, AppContants.SP_LOAD_PIC_BY_MOBILE_NET, false);
+        boolean boo = (boolean) SPUtils.get(context, AppContants.SP_LOAD_PIC_BY_MOBILE_NET, true);
 
 //        if (boo) {
             simpleDraweeView.setImageURI(Uri.parse(picUrl));
@@ -62,7 +62,7 @@ public class ImageUtils {
      */
     public static void setControllerByFresco(Context context, SimpleDraweeView simpleDraweeView, String picUrl, boolean retryEnable) {
 
-        boolean boo = (boolean) SPUtils.get(context, AppContants.SP_LOAD_PIC_BY_MOBILE_NET, false);
+        boolean boo = (boolean) SPUtils.get(context, AppContants.SP_LOAD_PIC_BY_MOBILE_NET, true);
 
         if (boo) {
             setController(context, simpleDraweeView, picUrl, retryEnable);
