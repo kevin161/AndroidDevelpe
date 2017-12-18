@@ -16,6 +16,7 @@ import com.gyz.androiddevelope.util.DensityUtils;
 import com.gyz.androiddevelope.util.LogUtils;
 
 /**
+ * 水波纹
  * @author: guoyazhou
  * @date: 2016-03-10 11:17
  */

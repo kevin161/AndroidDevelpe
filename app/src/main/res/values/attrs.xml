@@ -143,6 +143,20 @@
         <attr name="loadingColor" format="color|reference"/>
         <attr name="stopColor" format="color|reference"/>
     </declare-styleable>
+    //===================水平滚动tagview热门标签==========================
+    <declare-styleable name="TagHorizontalScrollView">
+        <attr name="textSize" />
+        <attr name="textColor"/>
+        <attr name="text_paddingLeft" format="dimension"/>
+        <attr name="text_paddingRight" format="dimension"/>
+        <attr name="text_paddingTob" format="dimension"/>
+        <attr name="text_paddingBottom" format="dimension"/>
+        <attr name="text_marginBottom" format="dimension"/>
+        <attr name="text_marginTop" format="dimension"/>
+        <attr name="text_marginLeft" format="dimension"/>
+        <attr name="text_marginRight" format="dimension"/>
+        <attr name="backGround" format="reference"/>
+    </declare-styleable>
 //滚动刻度尺====================================
     <declare-styleable name="BaseScaleView">
         <attr name="lf_scale_view_max" format="integer" />

@@ -21,7 +21,7 @@ import com.gyz.androiddevelope.R;
 
 /**
  * Created by ry on 2016/9/22.
- * 自定义尺子
+ * 自定义水平滚动刻度尺
  */
 public class RulerView extends View {
 

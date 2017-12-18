@@ -10,6 +10,7 @@ import android.view.View;
 import com.gyz.androiddevelope.R;
 
 /**
+ * 动画增长的三角图形
  * @author: guoyazhou
  * @date: 2016-05-06 13:55
  */

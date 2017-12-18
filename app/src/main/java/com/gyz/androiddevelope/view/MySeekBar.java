@@ -17,12 +17,12 @@ import com.gyz.androiddevelope.util.LogUtils;
 import java.util.ArrayList;
 
 /**
+ * 添富智投风险等级选择
  * @version V1.0
  * @FileName: com.gyz.androiddevelope.view.MySeekBar.java
  * @author: ZhaoHao
  * @date: 2017-04-28 11:29
  */
-
 public class MySeekBar extends View {
     public static final String tag = "MySeekBar";
     private Paint mLinePaint,mTextPaint;

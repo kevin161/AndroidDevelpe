@@ -9,6 +9,7 @@ import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.net.volley.bean.HotSearchBean;
 import com.gyz.androiddevelope.net.volley.bean.LastProfitBean;
 import com.gyz.androiddevelope.net.volley.bean.ServiceCheckBean;
+import com.gyz.androiddevelope.view.TagHorizontalScrollView;
 import com.gyz.androiddevelope.view.TagViewGroup;
 
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ public class VolleyActivity extends VolleyBaseActivity {
     private static final String TAG = "VolleyActivity";
     @Bind(R.id.tagViewGroup)
     TagViewGroup tagViewGroup;
+    @Bind(R.id.tagScrollView)
+    TagHorizontalScrollView tagScrollView;
     //    @Bind(R.id.edtName)
 //    EditText edtName;
 //    @Bind(R.id.edtPwd)
@@ -75,6 +78,7 @@ public class VolleyActivity extends VolleyBaseActivity {
         list.add("aoaa");
         list.add("aappppppa");
         tagViewGroup.addTag(list);
+        tagScrollView.addTag(list);
     }
 
 //    @OnClick(R.id.btnHtf)
