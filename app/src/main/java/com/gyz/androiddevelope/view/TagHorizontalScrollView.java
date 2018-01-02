@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.util.DensityUtils;
-import com.gyz.androiddevelope.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,14 +61,14 @@ public class TagHorizontalScrollView extends HorizontalScrollView {
         setVerticalScrollBarEnabled(false);
     }
 
-    public void addTag(List<String> list) {
+    public void addTag(List<String> list, final TagClickListener tagClickListener) {
         this.removeAllViews();
 
         LinearLayout linearLayout = new LinearLayout(getContext());
         LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         linearLayout.setLayoutParams(layoutParams);
         this.addView(linearLayout);
-        for (String str : list) {
+        for (final String str : list) {
 
             final TextView textView = new TextView(getContext());
             textView.setText(str);
@@ -81,7 +80,9 @@ public class TagHorizontalScrollView extends HorizontalScrollView {
             textView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ToastUtil.showShort(getContext(), textView.getText().toString());
+                    if (tagClickListener!=null){
+                        tagClickListener.onTagClickListener(str);
+                    }
                 }
             });
 
@@ -91,6 +92,10 @@ public class TagHorizontalScrollView extends HorizontalScrollView {
 
             linearLayout.addView(textView);
         }
+    }
+
+   public interface TagClickListener{
+         void onTagClickListener(String tagName);
     }
 
 }

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <attr name="textColor" format="color"/>
-    <attr name="textSize" format="dimension"/>
-    <attr name="reachColor" format="color"/>
-    <attr name="reachHeight" format="dimension"/>
-    <attr name="unreachColor" format="color"/>
-    <attr name="offset" format="dimension"/>
+    <attr name="textColor" format="color" />
+    <attr name="textSize" format="dimension" />
+    <attr name="reachColor" format="color" />
+    <attr name="reachHeight" format="dimension" />
+    <attr name="unreachColor" format="color" />
+    <attr name="offset" format="dimension" />
 
 
     //自定义横向进度条 属性
     <declare-styleable name="HorizontalProgressBar">
         <attr name="textColor" />
         <attr name="textSize" />
-        <attr name="reachColor"  />
+        <attr name="reachColor" />
         <attr name="reachHeight" />
         <attr name="unreachColor" />
-        <attr name="offset"  />
+        <attr name="offset" />
     </declare-styleable>
 
 
@@ -31,14 +31,14 @@
     //======日历================================
     <declare-styleable name="MaterialCalendarView">
 
-        <attr name="mcv_dateTextAppearance" format="reference"/>
-        <attr name="mcv_weekDayTextAppearance" format="reference"/>
-        <attr name="mcv_headerTextAppearance" format="reference"/>
+        <attr name="mcv_dateTextAppearance" format="reference" />
+        <attr name="mcv_weekDayTextAppearance" format="reference" />
+        <attr name="mcv_headerTextAppearance" format="reference" />
 
-        <attr name="mcv_arrowColor" format="color"/>
-        <attr name="mcv_leftArrowMask" format="reference"/>
-        <attr name="mcv_rightArrowMask" format="reference"/>
-        <attr name="mcv_selectionColor" format="color"/>
+        <attr name="mcv_arrowColor" format="color" />
+        <attr name="mcv_leftArrowMask" format="reference" />
+        <attr name="mcv_rightArrowMask" format="reference" />
+        <attr name="mcv_selectionColor" format="color" />
 
         <attr name="mcv_showOtherDates" format="integer">
             <flag name="none" value="0" />
@@ -52,7 +52,7 @@
         <attr name="mcv_weekDayLabels" format="reference" />
         <attr name="mcv_monthLabels" format="reference" />
 
-        <attr name="mcv_tileSize" format="dimension"/>
+        <attr name="mcv_tileSize" format="dimension" />
 
         <attr name="mcv_firstDayOfWeek" format="enum">
             <enum name="sunday" value="1" />
@@ -83,16 +83,14 @@
     //===应用主题切换====================================
 
 
-
-
-//===========DisScrollView=============================================
+    //===========DisScrollView=============================================
     <declare-styleable name="DiscrollView_LayoutParams">
-        <attr name="discrollve_alpha" format="boolean"/>
-        <attr name="discrollve_scaleX" format="boolean"/>
-        <attr name="discrollve_scaleY" format="boolean"/>
-        <attr name="discrollve_fromBgColor" format="color"/>
-        <attr name="discrollve_toBgColor" format="color"/>
-        <attr name="discrollve_translation"/>
+        <attr name="discrollve_alpha" format="boolean" />
+        <attr name="discrollve_scaleX" format="boolean" />
+        <attr name="discrollve_scaleY" format="boolean" />
+        <attr name="discrollve_fromBgColor" format="color" />
+        <attr name="discrollve_toBgColor" format="color" />
+        <attr name="discrollve_translation" />
     </declare-styleable>
 
     <attr name="discrollve_translation">
@@ -102,7 +100,7 @@
         <flag name="fromRight" value="0x08" />
     </attr>
 
-//=========parallax===============================
+    //=========parallax===============================
     <attr name="a_in" format="float" />
     <attr name="a_out" format="float" />
     <attr name="x_in" format="float" />
@@ -112,52 +110,62 @@
 
     //==========percent 布局====================
     <declare-styleable name="PercentLayout_Layout">
-        <attr name="layout_widthPercent" format="string"/>
-        <attr name="layout_heightPercent" format="string"/>
+        <attr name="layout_widthPercent" format="string" />
+        <attr name="layout_heightPercent" format="string" />
 
-        <attr name="layout_marginPercent" format="string"/>
-        <attr name="layout_marginLeftPercent" format="string"/>
-        <attr name="layout_marginTopPercent" format="string"/>
-        <attr name="layout_marginRightPercent" format="string"/>
-        <attr name="layout_marginBottomPercent" format="string"/>
-        <attr name="layout_marginStartPercent" format="string"/>
-        <attr name="layout_marginEndPercent" format="string"/>
+        <attr name="layout_marginPercent" format="string" />
+        <attr name="layout_marginLeftPercent" format="string" />
+        <attr name="layout_marginTopPercent" format="string" />
+        <attr name="layout_marginRightPercent" format="string" />
+        <attr name="layout_marginBottomPercent" format="string" />
+        <attr name="layout_marginStartPercent" format="string" />
+        <attr name="layout_marginEndPercent" format="string" />
 
-        <attr name="layout_textSizePercent" format="string"/>
+        <attr name="layout_textSizePercent" format="string" />
 
-        <attr name="layout_maxWidthPercent" format="string"/>
-        <attr name="layout_maxHeightPercent" format="string"/>
-        <attr name="layout_minWidthPercent" format="string"/>
-        <attr name="layout_minHeightPercent" format="string"/>
+        <attr name="layout_maxWidthPercent" format="string" />
+        <attr name="layout_maxHeightPercent" format="string" />
+        <attr name="layout_minWidthPercent" format="string" />
+        <attr name="layout_minHeightPercent" format="string" />
 
-        <attr name="layout_paddingPercent" format="string"/>
-        <attr name="layout_paddingTopPercent" format="string"/>
-        <attr name="layout_paddingBottomPercent" format="string"/>
-        <attr name="layout_paddingLeftPercent" format="string"/>
-        <attr name="layout_paddingRightPercent" format="string"/>
+        <attr name="layout_paddingPercent" format="string" />
+        <attr name="layout_paddingTopPercent" format="string" />
+        <attr name="layout_paddingBottomPercent" format="string" />
+        <attr name="layout_paddingLeftPercent" format="string" />
+        <attr name="layout_paddingRightPercent" format="string" />
     </declare-styleable>
 
     //应用宝下载进度条=====================================
     <declare-styleable name="FlickerProgressBar">
         <attr name="textSize" />
-        <attr name="loadingColor" format="color|reference"/>
-        <attr name="stopColor" format="color|reference"/>
+        <attr name="loadingColor" format="color|reference" />
+        <attr name="stopColor" format="color|reference" />
     </declare-styleable>
     //===================水平滚动tagview热门标签==========================
     <declare-styleable name="TagHorizontalScrollView">
         <attr name="textSize" />
-        <attr name="textColor"/>
-        <attr name="text_paddingLeft" format="dimension"/>
-        <attr name="text_paddingRight" format="dimension"/>
-        <attr name="text_paddingTob" format="dimension"/>
-        <attr name="text_paddingBottom" format="dimension"/>
-        <attr name="text_marginBottom" format="dimension"/>
-        <attr name="text_marginTop" format="dimension"/>
-        <attr name="text_marginLeft" format="dimension"/>
-        <attr name="text_marginRight" format="dimension"/>
-        <attr name="backGround" format="reference"/>
+        <attr name="textColor" />
+        <attr name="text_paddingLeft" format="dimension" />
+        <attr name="text_paddingRight" format="dimension" />
+        <attr name="text_paddingTob" format="dimension" />
+        <attr name="text_paddingBottom" format="dimension" />
+        <attr name="text_marginBottom" format="dimension" />
+        <attr name="text_marginTop" format="dimension" />
+        <attr name="text_marginLeft" format="dimension" />
+        <attr name="text_marginRight" format="dimension" />
+        <attr name="backGround" format="reference" />
     </declare-styleable>
-//滚动刻度尺====================================
+    //======================基金购买进度显示View=========================
+    <declare-styleable name="FundProgressSeekBar">
+        <attr name="lineColor" format="color|reference" />
+        <attr name="upTxtColor" format="color|reference" />
+        <attr name="downTxtColor" format="color|reference" />
+        <attr name="upTxtSize" format="dimension" />
+        <attr name="downTxtSize" format="dimension" />
+        <attr name="upTxtMargin" format="dimension" />
+        <attr name="downTxtMargin" format="dimension" />
+    </declare-styleable>
+    //滚动刻度尺====================================
     <declare-styleable name="BaseScaleView">
         <attr name="lf_scale_view_max" format="integer" />
         <attr name="lf_scale_view_min" format="integer" />
@@ -166,17 +174,17 @@
     </declare-styleable>
     <declare-styleable name="LoopScaleView">
         <!--可视范围内显示的大刻度数-->
-        <attr name="maxShowItem" format="integer"/>
+        <attr name="maxShowItem" format="integer" />
         <!--最大刻度值-->
-        <attr name="maxValue" format="integer"/>
+        <attr name="maxValue" format="integer" />
         <!--一个刻度表示的值的大小-->
-        <attr name="oneItemValue" format="integer"/>
+        <attr name="oneItemValue" format="integer" />
         <!--指针颜色-->
-        <attr name="cursorColor" format="color"/>
+        <attr name="cursorColor" format="color" />
         <!--刻度文字颜色-->
-        <attr name="scaleTextColor" format="color"/>
+        <attr name="scaleTextColor" format="color" />
         <!--指针图标，颜色和这个属性二选一-->
-        <attr name="cursorMap" format="reference"/>
+        <attr name="cursorMap" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="RulerView">

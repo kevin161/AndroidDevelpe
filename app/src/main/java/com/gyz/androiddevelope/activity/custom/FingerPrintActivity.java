@@ -4,6 +4,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.hardware.fingerprint.FingerprintManager;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -84,7 +85,7 @@ public class FingerPrintActivity extends BaseToolbarNormalActivity {
         // init fingerprint.
         fingerprintManager = FingerprintManagerCompat.from(this);
 
-        if (!fingerprintManager.isHardwareDetected()) {
+        if (!getSystemEnabled(this)) {
             // no fingerprint sensor is detected, show dialog to tell user.
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("没有传感器");
@@ -123,6 +124,22 @@ public class FingerPrintActivity extends BaseToolbarNormalActivity {
         }
 
     }
+
+    public static boolean getSystemEnabled(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return false;
+        }
+
+        FingerprintManagerCompat fingerprintManager = FingerprintManagerCompat.from(context);
+        boolean ii  = fingerprintManager.isHardwareDetected();
+        boolean ll = fingerprintManager.hasEnrolledFingerprints();
+
+        KeyguardManager keyguardManager = (KeyguardManager) context.getSystemService(Context.KEYGUARD_SERVICE);
+        return fingerprintManager.isHardwareDetected()
+                && fingerprintManager.hasEnrolledFingerprints()
+                && keyguardManager.isKeyguardSecure();
+    }
+
 
     @Override
     protected void loadData() {

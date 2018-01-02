@@ -1,6 +1,9 @@
 package com.gyz.androiddevelope.util;
 
 import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -50,8 +53,16 @@ public class FileUtil {
         return false;
     }
 
-
-
+    /**
+     *  复制至剪贴板
+     * @param context
+     * @param str
+     */
+    public static void copyToClipboard(Context context,String str){
+    ClipboardManager clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
+    ClipData clipData = ClipData.newPlainText(null,str);
+    clipboardManager.setPrimaryClip(clipData);
+}
 
 
     @NonNull

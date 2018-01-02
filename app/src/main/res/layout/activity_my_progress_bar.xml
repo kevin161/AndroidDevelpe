@@ -24,6 +24,11 @@
     <com.gyz.androiddevelope.view.MySeekBar
         android:layout_width="match_parent"
         android:layout_height="60dp" />
+    <com.gyz.androiddevelope.view.FundProgressSeekBar
+        android:layout_marginLeft="@dimen/dp_15"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
 
     <com.gyz.androiddevelope.view.LoveLayout
         android:id="@+id/loveLayout"

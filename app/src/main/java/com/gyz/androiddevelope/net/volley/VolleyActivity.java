@@ -78,7 +78,7 @@ public class VolleyActivity extends VolleyBaseActivity {
         list.add("aoaa");
         list.add("aappppppa");
         tagViewGroup.addTag(list);
-        tagScrollView.addTag(list);
+        tagScrollView.addTag(list,null);
     }
 
 //    @OnClick(R.id.btnHtf)
