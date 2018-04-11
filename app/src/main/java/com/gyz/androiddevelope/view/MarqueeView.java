@@ -12,11 +12,13 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.response_bean.LatestNewsBean;
 import com.gyz.androiddevelope.util.ImageUtils;
 import com.gyz.androiddevelope.util.LogUtils;
+import com.gyz.androiddevelope.util.ToastUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -31,7 +33,7 @@ public class MarqueeView extends FrameLayout implements View.OnClickListener {
     private static final String TAG = "MarqueeView";
     private List<LatestNewsBean.TopStory> topStoriesEntities;
     private List<View> views;
-    private Context context;
+    public Context context;
     private ViewPager vp;
     private boolean isAutoPlay;
     private int currentItem;

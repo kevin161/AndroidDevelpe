@@ -11,8 +11,8 @@
 
     <com.gyz.androiddevelope.view.QQHealthView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:visibility="gone"
+        android:layout_height="match_parent"/>
 
     <com.gyz.androiddevelope.view.ExperienceProgress
         android:id="@+id/lvProgress"
@@ -27,4 +27,7 @@
         android:src="@drawable/animator_star_svg"
         android:layout_height="wrap_content" />
 
+    <com.gyz.androiddevelope.view.RulerCalendarView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50" />
 </LinearLayout>

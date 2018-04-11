@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp" />
-    <com.gyz.androiddevelope.view.MySeekBar
+    <com.gyz.androiddevelope.view.FundSeekBar
         android:layout_width="match_parent"
         android:layout_height="60dp" />
     <com.gyz.androiddevelope.view.FundProgressSeekBar

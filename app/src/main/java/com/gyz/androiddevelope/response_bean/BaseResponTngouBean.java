@@ -10,5 +10,11 @@ public class BaseResponTngouBean {
 
     public int total;
 
+    public BaseResponTngouBean(){}
+
+    public BaseResponTngouBean(boolean ss,int tota){
+        this.status = ss;
+        this.total = tota;
+    }
 
 }

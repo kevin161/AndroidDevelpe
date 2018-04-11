@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -12,7 +14,6 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.gyz.androiddevelope.R;
-import com.gyz.androiddevelope.util.LogUtils;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ import java.util.ArrayList;
  * @author: ZhaoHao
  * @date: 2017-04-28 11:29
  */
-public class MySeekBar extends View {
+public class FundSeekBar extends View {
     public static final String tag = "MySeekBar";
     private Paint mLinePaint,mTextPaint;
 
@@ -42,7 +43,9 @@ public class MySeekBar extends View {
     private Bitmap spot;
     private Bitmap spotOn;
     private ArrayList<String> sectionTitle;
+    /**左右边距**/
     private float linePadding = 30;
+    Rect rectSpotOn;
     private float hotArea = 100;//点击的热区
 //    首末空出的线段
     private float freeLineLen = 2*linePadding;
@@ -55,15 +58,15 @@ public class MySeekBar extends View {
     private int textMove = 60;
     private int spotWidth,spotHeight,spotOnWidth,spotOnHeight;
 
-    public MySeekBar(Context context) {
+    public FundSeekBar(Context context) {
         this(context,null);
     }
 
-    public MySeekBar(Context context, @Nullable AttributeSet attrs) {
+    public FundSeekBar(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs,0);
     }
 
-    public MySeekBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public FundSeekBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
@@ -98,8 +101,10 @@ public class MySeekBar extends View {
         spotOn = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_my_seekbar_spot_on,spotOnOptions);
         spotOnWidth = spotOnOptions.outWidth;
         spotOnHeight = spotOnOptions.outHeight;
+         rectSpotOn = new Rect(0,0,spotOnWidth,spotOnHeight);
 
-        textMove = spotHeight*2;
+
+        textMove = (int) (spotHeight*1.7f);
         sectionTitle = new ArrayList<>();
         sectionTitle.add("保守");
         sectionTitle.add("稳健");
@@ -138,7 +143,11 @@ public class MySeekBar extends View {
                 canvas.drawBitmap(spot,linePadding+freeLineLen+section*perUsableLineLen-spotWidth/2,centerHeight-spotHeight/2,mLinePaint);
                 mTextPaint.setColor(getResources().getColor(R.color.color_6393ad));
             }else {
-                canvas.drawBitmap(spotOn,linePadding+freeLineLen+section*perUsableLineLen-spotOnWidth/2,centerHeight-spotOnHeight/2,mLinePaint);
+                RectF dst = new RectF(linePadding+freeLineLen+section*perUsableLineLen-spotOnWidth/2,centerHeight-spotOnHeight/2,
+                        linePadding+freeLineLen+section*perUsableLineLen-spotOnWidth/2+spotOnWidth,centerHeight+spotOnHeight/2);
+                canvas.drawBitmap(spotOn,rectSpotOn,dst,mLinePaint);
+
+              //  canvas.drawBitmap(spotOn,linePadding+freeLineLen+section*perUsableLineLen-spotOnWidth/2,centerHeight-spotOnHeight/2,mLinePaint);
                 //当前选中则颜色改变为黄色
                 mTextPaint.setColor(getResources().getColor(R.color.color_ff8811));
             }

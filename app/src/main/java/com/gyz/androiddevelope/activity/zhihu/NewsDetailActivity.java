@@ -206,29 +206,29 @@ public class NewsDetailActivity extends BaseActivity implements Toolbar.OnMenuIt
         }
     }
 
-    private void shareAuth() {
-
-
-        ShareSDK.initSDK(NewsDetailActivity.this);
-        OnekeyShare oks = new OnekeyShare();
-        //关闭sso授权
-        oks.disableSSOWhenAuthorize();
-         if (detailBean==null){
-             return;
-         }
-// text是分享文本，所有平台都需要这个字段
-        oks.setText( detailBean.getTitle());
-// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
-//oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
-// url仅在微信（包括好友和朋友圈）中使用
-        oks.setUrl(detailBean.getShareUrl());
-// site是分享此内容的网站名称，仅在QQ空间使用
-        oks.setSite(getString(R.string.app_name));
-
-// 启动分享GUI
-        oks.show(NewsDetailActivity.this);
-
-    }
+//    private void shareAuth() {
+//
+//
+//        ShareSDK.initSDK(NewsDetailActivity.this);
+//        OnekeyShare oks = new OnekeyShare();
+//        //关闭sso授权
+//        oks.disableSSOWhenAuthorize();
+//         if (detailBean==null){
+//             return;
+//         }
+//// text是分享文本，所有平台都需要这个字段
+//        oks.setText( detailBean.getTitle());
+//// imagePath是图片的本地路径，Linked-In以外的平台都支持此参数
+////oks.setImagePath("/sdcard/test.jpg");//确保SDcard下面存在此张图片
+//// url仅在微信（包括好友和朋友圈）中使用
+//        oks.setUrl(detailBean.getShareUrl());
+//// site是分享此内容的网站名称，仅在QQ空间使用
+//        oks.setSite(getString(R.string.app_name));
+//
+//// 启动分享GUI
+//        oks.show(NewsDetailActivity.this);
+//
+//    }
 
 
     /**

@@ -144,7 +144,6 @@ public class NearBySearchActivity extends BaseActivity implements ViewPager.OnPa
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
     }
 
     @Override

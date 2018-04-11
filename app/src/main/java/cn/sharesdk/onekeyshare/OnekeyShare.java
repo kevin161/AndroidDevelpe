@@ -241,6 +241,7 @@ public class OnekeyShare {
 		ShareSDK.logDemoEvent(1, null);
 
 		int iTheme = 0;
+		
 		try {
 			iTheme = ResHelper.parseInt(String.valueOf(shareParamsMap.remove("theme")));
 		} catch (Throwable t) {}
