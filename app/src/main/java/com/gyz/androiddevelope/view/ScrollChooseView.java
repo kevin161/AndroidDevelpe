@@ -15,6 +15,8 @@ import android.widget.Scroller;
 
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.response_bean.BaseResponTngouBean;
+import com.gyz.androiddevelope.util.LogUtils;
+import com.gyz.androiddevelope.util.ScreenUtils;
 
 import java.util.List;
 
@@ -24,7 +26,6 @@ import java.util.List;
  * Created by lsp on 2017/2/24.
  */
 public class ScrollChooseView extends View {
-    //    private String[] titles = null;
     private List<BaseResponTngouBean> datas;
     private Paint paint, pointPaint;
     private Rect timeBound, txtBound;
@@ -61,13 +62,15 @@ public class ScrollChooseView extends View {
 
     }
 
-//    public void setPicIds(int[] picIds) {
-//        this.picIds = picIds;
-//    }
 
     public void setDatas(List<BaseResponTngouBean> data) {
         this.datas = data;
         invalidate();
+    }
+
+    public void setCurrentPosition(int position) {
+        int screenWidth = ScreenUtils.getScreenWidth(getContext());
+        scrollX(screenWidth / 3 * (position - 1), false);
     }
 
     public void setOnScrollEndListener(OnScrollEndListener onScrollEndListener) {
@@ -130,6 +133,19 @@ public class ScrollChooseView extends View {
                 break;
             case MotionEvent.ACTION_UP:
                 if (isClick) {
+                    //点击后跳到对应的position
+                    if ((centerX - x) > (getMeasuredHeight() / 6)) {
+//                        left
+                        if (getCurrentPosition() < 1) {
+                            return true;
+                        }
+                        scrollX(getMeasuredWidth() / 3 * (getCurrentPosition() - 2) , false);
+                    } else if ((centerX + x) > (centerX + getMeasuredHeight() / 6)) {
+                        if ((getCurrentPosition() + 1) >= datas.size()) {
+                            return true;
+                        }
+                        scrollX(getMeasuredWidth() / 3 * (getCurrentPosition()), false);
+                    }
                     return true;
                 }
                 if (getScrollX() < -getMeasuredWidth() / 3.0) {
@@ -201,7 +217,6 @@ public class ScrollChooseView extends View {
             return;
         }
         drawText(canvas);
-
     }
 
     private void drawBottomLine(Canvas canvas) {
@@ -210,10 +225,10 @@ public class ScrollChooseView extends View {
 
         int[] colors = {0xFF2894FF, 0xFF6DB3ff, 0xFF96D9F8, 0xFF96D9F8, 0xFF6DB3ff, 0xFF2894FF};
         float[] positions = {0, 1f / 5, 2f / 5, 3f / 5, 4f / 5, 1};
-        LinearGradient linearGradient = new LinearGradient(0 + getScrollX(), centerY, width + getScrollX(), centerY, colors, positions, Shader.TileMode.CLAMP);
+        LinearGradient linearGradient = new LinearGradient(getScrollX(), centerY, width + getScrollX(), centerY, colors, positions, Shader.TileMode.CLAMP);
         paint.setShader(linearGradient);
 
-        canvas.drawLine(0 + getScrollX(), centerY, width + getScrollX(), centerY, paint);
+        canvas.drawLine(getScrollX(), centerY, width + getScrollX(), centerY, paint);
     }
 
     private void drawText(Canvas canvas) {
@@ -256,13 +271,12 @@ public class ScrollChooseView extends View {
 
 
                 pointPaint.setStrokeWidth(26);
-                pointPaint.setColor(getResources().getColor(R.color.transparent));
+                pointPaint.setColor(getResources().getColor(R.color.colorPrimary));
                 canvas.drawCircle(width / 6 * (2 * i + 1), centerY, 22, pointPaint);
 
                 pointPaint.setStrokeWidth(23);
                 pointPaint.setColor(getResources().getColor(R.color.color_ef5350));
                 canvas.drawCircle(width / 6 * (2 * i + 1), centerY, 13, pointPaint);
-
 
             }
 //            for (int i = 0; i < titles.length; i++) {

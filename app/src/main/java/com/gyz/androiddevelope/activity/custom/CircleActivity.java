@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.base.BaseActivity;
 import com.gyz.androiddevelope.response_bean.BaseResponTngouBean;
+import com.gyz.androiddevelope.util.ToastUtil;
 import com.gyz.androiddevelope.view.ExperienceProgress;
 import com.gyz.androiddevelope.view.ScrollChooseView;
 
@@ -70,6 +71,13 @@ public class CircleActivity extends BaseActivity {
         datas.add(bean11);
 
         scrollChooseView.setDatas(datas);
+        scrollChooseView.setCurrentPosition(5);
+        scrollChooseView.setOnScrollEndListener(new ScrollChooseView.OnScrollEndListener() {
+            @Override
+            public void currentPosition(int position) {
+//                ToastUtil.showShort(getApplicationContext(),"position==="+position);
+            }
+        });
     }
 
     boolean isChoose;
