@@ -3,13 +3,20 @@ package com.gyz.androiddevelope.view;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Scroller;
+
+import com.gyz.androiddevelope.R;
+import com.gyz.androiddevelope.response_bean.BaseResponTngouBean;
+
+import java.util.List;
 
 
 /**
@@ -17,9 +24,10 @@ import android.widget.Scroller;
  * Created by lsp on 2017/2/24.
  */
 public class ScrollChooseView extends View {
-    private String[] titles = null;
-    private Paint paint;
-    private Rect textBound;
+    //    private String[] titles = null;
+    private List<BaseResponTngouBean> datas;
+    private Paint paint, pointPaint;
+    private Rect timeBound, txtBound;
     private int downX;
 
     private Scroller mScroller;
@@ -28,7 +36,7 @@ public class ScrollChooseView extends View {
 
     private boolean isClick = false;
     private OnScrollEndListener onScrollEndListener;
-    private int picIds[] = null;
+//    private int picIds[] = null;
 
     public ScrollChooseView(Context context) {
         this(context, null);
@@ -41,22 +49,24 @@ public class ScrollChooseView extends View {
     public ScrollChooseView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        textBound = new Rect();
+        timeBound = new Rect();
+        txtBound = new Rect();
         paint = new Paint();
         paint.setAntiAlias(true);
         paint.setColor(Color.WHITE);
         paint.setTextSize(sp2px(getContext(), 10));
+        pointPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
         mScroller = new Scroller(context);
 
     }
 
-    public void setPicIds(int[] picIds) {
-        this.picIds = picIds;
-    }
+//    public void setPicIds(int[] picIds) {
+//        this.picIds = picIds;
+//    }
 
-    public void setTitles(String titles[]) {
-        this.titles = titles;
+    public void setDatas(List<BaseResponTngouBean> data) {
+        this.datas = data;
         invalidate();
     }
 
@@ -86,6 +96,12 @@ public class ScrollChooseView extends View {
             position = 7;
         } else if (getScrollX() > getMeasuredWidth() / 6 * 1 * 13 && getScrollX() <= getMeasuredWidth() / 6 * 1 * 15) {
             position = 8;
+        } else if (getScrollX() > getMeasuredWidth() / 6 * 1 * 15 && getScrollX() <= getMeasuredWidth() / 6 * 1 * 17) {
+            position = 9;
+        } else if (getScrollX() > getMeasuredWidth() / 6 * 1 * 17 && getScrollX() <= getMeasuredWidth() / 6 * 1 * 19) {
+            position = 10;
+        } else if (getScrollX() > getMeasuredWidth() / 6 * 1 * 19 && getScrollX() <= getMeasuredWidth() / 6 * 1 * 21) {
+            position = 11;
         }
 
         return position;
@@ -94,7 +110,7 @@ public class ScrollChooseView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (titles.length <= 1) {
+        if (datas.size() <= 1) {
             return super.onTouchEvent(event);
         }
         int x = (int) event.getX();
@@ -106,7 +122,7 @@ public class ScrollChooseView extends View {
             case MotionEvent.ACTION_MOVE:
                 isClick = false;
                 int offset = x - downX;
-                if (getScrollX() < -getMeasuredWidth() / 3.0 || getScrollX() > getMeasuredWidth() / 3.0 * titles.length - getMeasuredWidth() + getMeasuredWidth() / 3.0) {
+                if (getScrollX() < -getMeasuredWidth() / 3.0 || getScrollX() > getMeasuredWidth() / 3.0 * datas.size() - getMeasuredWidth() + getMeasuredWidth() / 3.0) {
                     return super.onTouchEvent(event);
                 } else {
                     scrollX(lastScrollX - offset, true);
@@ -119,8 +135,8 @@ public class ScrollChooseView extends View {
                 if (getScrollX() < -getMeasuredWidth() / 3.0) {
                     scrollX((int) (-getMeasuredWidth() / 3.0), true);
                 }
-                if (getScrollX() > getMeasuredWidth() / 3.0 * titles.length - getMeasuredWidth() + getMeasuredWidth() / 3.0) {
-                    scrollX((int) (getMeasuredWidth() / 3.0 * titles.length - getMeasuredWidth() + getMeasuredWidth() / 3.0), true);
+                if (getScrollX() > getMeasuredWidth() / 3.0 * datas.size() - getMeasuredWidth() + getMeasuredWidth() / 3.0) {
+                    scrollX((int) (getMeasuredWidth() / 3.0 * datas.size() - getMeasuredWidth() + getMeasuredWidth() / 3.0), true);
                 }
 
                 scrollX(getMeasuredWidth() / 3 * (getCurrentPosition() - 1), false);
@@ -161,46 +177,112 @@ public class ScrollChooseView extends View {
         }
     }
 
+    int width, height, centerX, centerY;
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         int widhtMode = MeasureSpec.getMode(widthMeasureSpec);
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
-
         setMeasuredDimension(widhtMode == MeasureSpec.EXACTLY ? widthSize : widthSize, heightMode == MeasureSpec.EXACTLY ? heightSize : dp2px(getContext(), 100));
+        width = getMeasuredWidth();
+        centerX = width / 2;
+        height = getMeasuredHeight();
+        centerY = height / 2;
 
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (titles == null) {
+        drawBottomLine(canvas);
+        if (datas == null) {
             return;
         }
         drawText(canvas);
 
     }
 
+    private void drawBottomLine(Canvas canvas) {
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setStrokeWidth(20);
+
+        int[] colors = {0xFF2894FF, 0xFF6DB3ff, 0xFF96D9F8, 0xFF96D9F8, 0xFF6DB3ff, 0xFF2894FF};
+        float[] positions = {0, 1f / 5, 2f / 5, 3f / 5, 4f / 5, 1};
+        LinearGradient linearGradient = new LinearGradient(0 + getScrollX(), centerY, width + getScrollX(), centerY, colors, positions, Shader.TileMode.CLAMP);
+        paint.setShader(linearGradient);
+
+        canvas.drawLine(0 + getScrollX(), centerY, width + getScrollX(), centerY, paint);
+    }
+
     private void drawText(Canvas canvas) {
-        for (int i = 0; i < titles.length; i++) {
+        for (int i = 0; i < datas.size(); i++) {
+            BaseResponTngouBean bean = datas.get(i);
             if (getCurrentPosition() == i) {
+//                正中心的内容
                 paint.setTextSize(sp2px(getContext(), 20));
-                paint.getTextBounds(titles[i], 0, titles[i].length(), textBound);
-                canvas.drawText(titles[i], getMeasuredWidth() / 6 * (2 * i + 1) - (textBound.width() / 2),
-                        (getMeasuredHeight() / 2) + textBound.height() / 2, paint);
-                paint.setStrokeWidth(3);
-                canvas.drawLine(getMeasuredWidth() / 6 * (2 * i + 1) - (textBound.width() / 2) - 10, (getMeasuredHeight() / 2) + textBound.height(),
-                        getMeasuredWidth() / 6 * (2 * i + 1) + (textBound.width() / 2) + 10, (getMeasuredHeight() / 2) + textBound.height(), paint);
+//                上部日期
+                paint.getTextBounds(bean.status + "", 0, (bean.status + "").length(), timeBound);
+                canvas.drawText(bean.status + "", width / 6 * (2 * i + 1) - (timeBound.width() / 2),
+                        centerY - timeBound.height(), paint);
+//                下部文字
+                paint.getTextBounds(bean.total + "", 0, (bean.total + "").length(), txtBound);
+                canvas.drawText(bean.total + "", width / 6 * (2 * i + 1) - (txtBound.width() / 2),
+                        centerY + txtBound.height() * 2f, paint);
+//                中间点
+                //        绘制中心点的数据
+                pointPaint.setStrokeWidth(27);
+                pointPaint.setColor(getResources().getColor(R.color.color_ffffff));
+                canvas.drawCircle(width / 6 * (2 * i + 1), centerY, 23, pointPaint);
+
+                pointPaint.setStrokeWidth(24);
+                pointPaint.setColor(getResources().getColor(R.color.color_ef5350));
+                canvas.drawCircle(width / 6 * (2 * i + 1), centerY, 16, pointPaint);
+
+                pointPaint.setStrokeWidth(20);
+                pointPaint.setColor(getResources().getColor(R.color.color_ffffff));
+                canvas.drawCircle(width / 6 * (2 * i + 1), centerX, 10, pointPaint);
+
             } else {
                 paint.setTextSize(sp2px(getContext(), 10));
-                paint.getTextBounds(titles[i], 0, titles[i].length(), textBound);
-                canvas.drawText(titles[i], getMeasuredWidth() / 6 * (2 * i + 1) - (textBound.width() / 2), (getMeasuredHeight() / 2) + textBound.height() / 2, paint);
+                paint.getTextBounds(bean.status + "", 0, (bean.status + "").length(), timeBound);
+                canvas.drawText(bean.status + "", width / 6 * (2 * i + 1) - (timeBound.width() / 2),
+                        centerY - timeBound.height() * 2, paint);
+
+                paint.getTextBounds(bean.total + "", 0, (bean.total + "").length(), txtBound);
+                canvas.drawText(bean.total + "", width / 6 * (2 * i + 1) - (txtBound.width() / 2),
+                        centerY + txtBound.height() * 3, paint);
+
+
+                pointPaint.setStrokeWidth(26);
+                pointPaint.setColor(getResources().getColor(R.color.transparent));
+                canvas.drawCircle(width / 6 * (2 * i + 1), centerY, 22, pointPaint);
+
+                pointPaint.setStrokeWidth(23);
+                pointPaint.setColor(getResources().getColor(R.color.color_ef5350));
+                canvas.drawCircle(width / 6 * (2 * i + 1), centerY, 13, pointPaint);
+
+
             }
-            if (getCurrentPosition() >= picIds.length) {
-                return;
-            }
-            setBackgroundResource(picIds[getCurrentPosition()]);
+//            for (int i = 0; i < titles.length; i++) {
+//            if (getCurrentPosition() == i) {
+//                paint.setTextSize(sp2px(getContext(), 20));
+//                paint.getTextBounds(titles[i], 0, titles[i].length(), timeBound);
+//                canvas.drawText(titles[i], getMeasuredWidth() / 6 * (2 * i + 1) - (timeBound.width() / 2),
+//                        (getMeasuredHeight() / 2) + timeBound.height() / 2, paint);
+//                paint.setStrokeWidth(3);
+//                canvas.drawLine(getMeasuredWidth() / 6 * (2 * i + 1) - (timeBound.width() / 2) - 10, (getMeasuredHeight() / 2) + timeBound.height(),
+//                        getMeasuredWidth() / 6 * (2 * i + 1) + (timeBound.width() / 2) + 10, (getMeasuredHeight() / 2) + timeBound.height(), paint);
+//            } else {
+//                paint.setTextSize(sp2px(getContext(), 10));
+//                paint.getTextBounds(titles[i], 0, titles[i].length(), timeBound);
+//                canvas.drawText(titles[i], getMeasuredWidth() / 6 * (2 * i + 1) - (timeBound.width() / 2), (getMeasuredHeight() / 2) + timeBound.height() / 2, paint);
+//            }
+//            if (getCurrentPosition() >= picIds.length) {
+//                return;
+//            }
+//            setBackgroundResource(picIds[getCurrentPosition()]);
         }
     }
 

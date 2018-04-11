@@ -30,4 +30,9 @@
     <com.gyz.androiddevelope.view.RulerCalendarView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50" />
+
+    <com.gyz.androiddevelope.view.ScrollChooseView
+        android:id="@+id/scrollChooseView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
