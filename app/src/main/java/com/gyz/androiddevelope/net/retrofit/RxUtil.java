@@ -23,7 +23,7 @@ public class RxUtil {
      */
     public static <S, R extends Observable<S>> void subscribeAll( Func1<String, R> func1, Subscriber<S> subscriber) {
 
-        Observable.just("").flatMap(func1).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        Observable.just("").flatMap(func1).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).unsubscribeOn(Schedulers.io())
                 .subscribe(subscriber);
 
     }

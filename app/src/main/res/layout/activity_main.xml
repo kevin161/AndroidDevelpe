@@ -24,6 +24,16 @@
             android:showDividers="beginning|middle|end">
 
             <Button
+                android:id="@+id/btnScrollTextView"
+                android:layout_width="wrap_content"
+                android:text="上下滚动文字"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btnCal"
+                android:layout_width="wrap_content"
+                android:text="收益率计算"
+                android:layout_height="wrap_content" />
+            <Button
                 android:id="@+id/btnRSA"
                 android:layout_width="wrap_content"
                 android:text="RSA加解密"

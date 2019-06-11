@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.LinearGradient;
 import android.graphics.Matrix;
 import android.graphics.Shader;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -15,7 +16,7 @@ import android.widget.TextView;
  * @author: ZhaoHao
  * @date: 2016-08-24 11:06
  */
-public class LinearGradientTextView extends TextView {
+public class LinearGradientTextView extends AppCompatTextView {
 
     private TextPaint paint;
     private LinearGradient linearGradient;

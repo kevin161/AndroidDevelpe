@@ -159,7 +159,7 @@ public class FlickerProgressBar extends View implements Runnable {
         bgPaint.setColor(progressColor);
 
         float right = (progress/MAX_PROGRESS)*getMeasuredWidth();
-        pgCanvas.save(Canvas.CLIP_SAVE_FLAG);
+        pgCanvas.save();
         pgCanvas.clipRect(0,0,right,getMeasuredHeight());
         pgCanvas.drawColor(progressColor);
         pgCanvas.restore();
@@ -196,7 +196,7 @@ public class FlickerProgressBar extends View implements Runnable {
         float yCoordinate = (getMeasuredHeight() +tHeight)/2;
         float progressWidth = (progress/MAX_PROGRESS)*getMeasuredWidth();
         if (progressWidth>xCoordinate){
-            canvas.save(Canvas.CLIP_SAVE_FLAG);
+            canvas.save();
             //计算显示成白色的文字  右边长度
             float right = Math.min(progressWidth,xCoordinate+tWidth);
             canvas.clipRect(xCoordinate,0,right,getMeasuredHeight());

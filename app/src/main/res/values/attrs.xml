@@ -211,4 +211,10 @@
         <!--一个刻度的大小-->
         <attr name="one_item_value" format="integer" />
     </declare-styleable>
+
+    <!--scrollTextView-->
+    <declare-styleable name="ScrollTextView">
+        <attr name="textSize" />
+        <attr name="textColor" />
+    </declare-styleable>
 </resources>

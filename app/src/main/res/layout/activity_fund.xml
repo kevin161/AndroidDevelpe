@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+<TextView
+    android:layout_width="match_parent"
+    android:text="qm盈亏："
+    android:layout_height="@dimen/dp_50" />
+    <EditText
+        android:id="@+id/edtQm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50" />
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_50"
+        android:layout_width="match_parent"
+        android:text="xq盈亏："
+        android:layout_height="@dimen/dp_50" />
+    <EditText
+        android:id="@+id/edtXq"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:id="@+id/btnCalculate"
+        android:text="计算"
+        android:layout_height="@dimen/dp_50" />
+</LinearLayout>

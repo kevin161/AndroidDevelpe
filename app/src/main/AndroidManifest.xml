@@ -43,7 +43,6 @@
         <activity
             android:name=".activity.custom.LoadActivity"
             android:label="@string/title_activity_load"
-            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -105,6 +104,8 @@
         <activity android:name=".activity.custom.Win10ProgressActivity" />
         <activity android:name=".activity.custom.FlickerProgressActivity" />
         <activity android:name=".activity.custom.MyWebActivity" />
+        <activity android:name=".activity.custom.FundActivity" />
+        <activity android:name=".activity.custom.ScrollTextViewActivity" />
         <activity android:name=".activity.custom.ToolbarTestActivity" />
         <activity android:name=".activity.custom.SearchViewActivity" />
         <activity android:name=".activity.custom.ImageCrapActivity" />
