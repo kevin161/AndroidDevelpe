@@ -24,6 +24,11 @@
             android:showDividers="beginning|middle|end">
 
             <Button
+                android:id="@+id/btnNestedScrollView"
+                android:layout_width="wrap_content"
+                android:text="嵌套 滚动"
+                android:layout_height="wrap_content" />
+            <Button
                 android:id="@+id/btnScrollTextView"
                 android:layout_width="wrap_content"
                 android:text="上下滚动文字"
