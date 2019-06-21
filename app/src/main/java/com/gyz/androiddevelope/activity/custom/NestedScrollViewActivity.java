@@ -38,6 +38,9 @@ public class NestedScrollViewActivity extends BaseActivity {
     @Override
     protected void initVariables() {
 
+
+
+
     }
 
     @Override
