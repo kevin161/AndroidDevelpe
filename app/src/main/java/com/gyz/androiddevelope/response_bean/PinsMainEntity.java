@@ -10,10 +10,10 @@ import android.os.Parcelable;
 public class PinsMainEntity implements Parcelable {
 
 
-    private int pin_id;
-    private int user_id;
-    private int board_id;
-    private int file_id;
+    private long pin_id;
+    private long user_id;
+    private long board_id;
+    private long file_id;
     /**
      * farm : farm1
      * bucket : hbimg
@@ -29,10 +29,10 @@ public class PinsMainEntity implements Parcelable {
     private String source;
     private String link;
     private String raw_text;
-    private int via;
-    private int via_user_id;
-    private int original;
-    private int created_at;
+    private String via;
+    private String via_user_id;
+    private String original;
+    private String created_at;
     private int like_count;
     private int seq;
     private int comment_count;
@@ -69,6 +69,22 @@ public class PinsMainEntity implements Parcelable {
 
     private PinsBoardEntity board;
 
+    public void setPin_id(long pin_id) {
+        this.pin_id = pin_id;
+    }
+
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
+    }
+
+    public void setBoard_id(long board_id) {
+        this.board_id = board_id;
+    }
+
+    public void setFile_id(long file_id) {
+        this.file_id = file_id;
+    }
+
     /**
      * user_id : 605533
      * username : 宁馨郁金香
@@ -77,22 +93,6 @@ public class PinsMainEntity implements Parcelable {
      * avatar : https
      */
 
-
-    public void setPin_id(int pin_id) {
-        this.pin_id = pin_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public void setBoard_id(int board_id) {
-        this.board_id = board_id;
-    }
-
-    public void setFile_id(int file_id) {
-        this.file_id = file_id;
-    }
 
     public void setFile(PinsFileEntity file) {
         this.file = file;
@@ -114,21 +114,6 @@ public class PinsMainEntity implements Parcelable {
         this.raw_text = raw_text;
     }
 
-    public void setVia(int via) {
-        this.via = via;
-    }
-
-    public void setVia_user_id(int via_user_id) {
-        this.via_user_id = via_user_id;
-    }
-
-    public void setOriginal(int original) {
-        this.original = original;
-    }
-
-    public void setCreated_at(int created_at) {
-        this.created_at = created_at;
-    }
 
     public void setLike_count(int like_count) {
         this.like_count = like_count;
@@ -166,20 +151,19 @@ public class PinsMainEntity implements Parcelable {
         this.board = board;
     }
 
-
-    public int getPin_id() {
+    public long getPin_id() {
         return pin_id;
     }
 
-    public int getUser_id() {
+    public long getUser_id() {
         return user_id;
     }
 
-    public int getBoard_id() {
+    public long getBoard_id() {
         return board_id;
     }
 
-    public int getFile_id() {
+    public long getFile_id() {
         return file_id;
     }
 
@@ -203,20 +187,36 @@ public class PinsMainEntity implements Parcelable {
         return raw_text;
     }
 
-    public int getVia() {
+    public String getVia() {
         return via;
     }
 
-    public int getVia_user_id() {
+    public void setVia(String via) {
+        this.via = via;
+    }
+
+    public String getVia_user_id() {
         return via_user_id;
     }
 
-    public int getOriginal() {
+    public void setVia_user_id(String via_user_id) {
+        this.via_user_id = via_user_id;
+    }
+
+    public String getOriginal() {
         return original;
     }
 
-    public int getCreated_at() {
+    public void setOriginal(String original) {
+        this.original = original;
+    }
+
+    public String getCreated_at() {
         return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
     public int getLike_count() {
@@ -263,19 +263,19 @@ public class PinsMainEntity implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.pin_id);
-        dest.writeInt(this.user_id);
-        dest.writeInt(this.board_id);
-        dest.writeInt(this.file_id);
+        dest.writeLong(this.pin_id);
+        dest.writeLong(this.user_id);
+        dest.writeLong(this.board_id);
+        dest.writeLong(this.file_id);
         dest.writeParcelable(this.file, flags);
         dest.writeInt(this.media_type);
         dest.writeString(this.source);
         dest.writeString(this.link);
         dest.writeString(this.raw_text);
-        dest.writeInt(this.via);
-        dest.writeInt(this.via_user_id);
-        dest.writeInt(this.original);
-        dest.writeInt(this.created_at);
+        dest.writeString(this.via);
+        dest.writeString(this.via_user_id);
+        dest.writeString(this.original);
+        dest.writeString(this.created_at);
         dest.writeInt(this.like_count);
         dest.writeInt(this.seq);
         dest.writeInt(this.comment_count);
@@ -291,19 +291,19 @@ public class PinsMainEntity implements Parcelable {
     }
 
     protected PinsMainEntity(Parcel in) {
-        this.pin_id = in.readInt();
-        this.user_id = in.readInt();
-        this.board_id = in.readInt();
-        this.file_id = in.readInt();
+        this.pin_id = in.readLong();
+        this.user_id = in.readLong();
+        this.board_id = in.readLong();
+        this.file_id = in.readLong();
         this.file = in.readParcelable(PinsFileEntity.class.getClassLoader());
         this.media_type = in.readInt();
         this.source = in.readString();
         this.link = in.readString();
         this.raw_text = in.readString();
-        this.via = in.readInt();
-        this.via_user_id = in.readInt();
-        this.original = in.readInt();
-        this.created_at = in.readInt();
+        this.via = in.readString();
+        this.via_user_id = in.readString();
+        this.original = in.readString();
+        this.created_at = in.readString();
         this.like_count = in.readInt();
         this.seq = in.readInt();
         this.comment_count = in.readInt();

@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.gyz.androiddevelope.R;
 import com.gyz.androiddevelope.activity.custom.SettingsActivity;
+import com.gyz.androiddevelope.activity.huaban.HuabanSearchActivity;
 import com.gyz.androiddevelope.activity.huaban.LoginActivity;
 import com.gyz.androiddevelope.activity.huaban.UserActivity;
 import com.gyz.androiddevelope.base.BaseActivity;
@@ -145,6 +146,8 @@ public class HomeActivity extends BaseActivity
         if (id == R.id.action_settings) {
             SettingsActivity.startActivity();
             return true;
+        }else if (id==R.id.action_search){
+            HuabanSearchActivity.startActivity(this);
         }
 
         return super.onOptionsItemSelected(item);

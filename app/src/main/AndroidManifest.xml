@@ -90,6 +90,7 @@
         <activity android:name=".activity.custom.SlidingItemActivity" />
         <activity android:name=".activity.custom.MountainViewActivity" />
         <activity android:name=".activity.custom.NestedScrollViewActivity" />
+        <activity android:name=".activity.custom.RightSideViewActivity" />
         <activity android:name=".activity.custom.FlyViewActivity" />
         <activity android:name=".activity.custom.NearBySearchActivity" />
         <activity android:name=".activity.custom.PermissionActivity" />

@@ -127,7 +127,7 @@ public interface ApiManagerService {
     //https://api.huaban.com/favorite/food_drink?max=5445324325&limit=20
     //模板类型 的后续联网 max
     @GET("favorite/{type}")
-    Observable<ListPinsBean> httpsTypeMaxLimitRx(@Header("Authorization") String authorization, @Path("type") String type, @Query("max") int max, @Query("limit") int limit);
+    Observable<ListPinsBean> httpsTypeMaxLimitRx(@Header("Authorization") String authorization, @Path("type") String type, @Query("max") long max, @Query("limit") int limit);
 
 
     //https 用户登录  的第一步
@@ -166,7 +166,7 @@ public interface ApiManagerService {
     //https://api.huaban.com/users/743988/likes?limit=40&max=4338219
     //用户的喜欢 更多page+
     @GET("users/{userId}/likes")
-    Observable<ListPinsBean> httpsUserLikePinsMaxRx(@Header("Authorization") String authorization, @Path("userId") String pinsId, @Query("max") int max, @Query("limit") int limit);
+    Observable<ListPinsBean> httpsUserLikePinsMaxRx(@Header("Authorization") String authorization, @Path("userId") String pinsId, @Query("max") long max, @Query("limit") int limit);
 
     //https://api.huaban.com/users/188174/pins?limit=40
     //用户的采集
@@ -176,7 +176,7 @@ public interface ApiManagerService {
     //https://api.huaban.com/users/188174/pins?limit=40&max=19532400
     //采集后续滑动联网
     @GET("users/{userId}/pins")
-    Observable<ListPinsBean> httpsUserPinsMaxRx(@Header("Authorization") String authorization, @Path("userId") String pinsId, @Query("max") int max, @Query("limit") int limit);
+    Observable<ListPinsBean> httpsUserPinsMaxRx(@Header("Authorization") String authorization, @Path("userId") String pinsId, @Query("max") long max, @Query("limit") int limit);
     //https://api.huaban.com/pins/663478425
     //根据图片id获取详情
     @GET("pins/{pinsId}")
@@ -195,7 +195,7 @@ public interface ApiManagerService {
     //https//api.huaban.com/boards/19196160/pins?limit=40&max=508414882
     //获取画板的图片集合 根据上一个图片的id继续加载
     @GET("boards/{boardId}/pins")
-    Observable<ListPinsBean> httpsBoardPinsMaxRx(@Header("Authorization") String authorization, @Path("boardId") String boardId, @Query("max") int max, @Query("limit") int limit);
+    Observable<ListPinsBean> httpsBoardPinsMaxRx(@Header("Authorization") String authorization, @Path("boardId") String boardId, @Query("max") long max, @Query("limit") int limit);
     //https://api.huaban.com/pins/687738004/like
     //https://api.huaban.com/pins/687738004/unlike POST方法 这两个统一成一个接口
     //对图片的进行like操作

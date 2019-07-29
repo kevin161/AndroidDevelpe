@@ -30,8 +30,8 @@ public class AppContants {
     public static final String BUGLY_APP_ID = "900021343";
     public static final String WEIXIN_APP_ID = "wx7c330bddec9f3191";
 
-    public static final String BASE_URL_ZHIHU = "http://news-at.zhihu.com/api/4/";
-    public static final String BASE_URL_TNGOU = "http://www.tngou.net/";
+    public static final String BASE_URL_ZHIHU = "https://news-at.zhihu.com/api/4/";
+        public static final String BASE_URL_TNGOU = "http://www.tngou.net/";
     public static final String BASE_URL_HUABAN = "https://api.huaban.com/";
     public static final String BASE_URL_HTF = "http://10.50.115.99:9089/mobile3/";
 

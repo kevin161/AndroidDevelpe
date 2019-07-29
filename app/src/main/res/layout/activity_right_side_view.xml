@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycelview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.gyz.androiddevelope.view.SideBar
+        android:id="@+id/sidebar"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center|right"
+        android:padding="10dp" />
+
+</FrameLayout>
