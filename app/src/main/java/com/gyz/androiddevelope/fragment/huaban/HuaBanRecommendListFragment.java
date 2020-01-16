@@ -321,7 +321,7 @@ public class HuaBanRecommendListFragment extends BaseRecyclerFragment implements
 
 
     //图像文字信息 填充
-    private void setImageTextInfo(String raw, String link, String source, int gather, int like) {
+    private void setImageTextInfo(String raw, String link, String source, String gather, String like) {
         if (!TextUtils.isEmpty(raw)) {
             tv_image_text.setText(raw);
         } else {
@@ -339,12 +339,12 @@ public class HuaBanRecommendListFragment extends BaseRecyclerFragment implements
         setTvImageLikeNumber(like);
     }
 
-    private void setTvImageLikeNumber(int like) {
+    private void setTvImageLikeNumber(String like) {
         tv_image_like.setText(getString(R.string.text_like_number,like));
     }
 
     //图像的用户信息 填充
-    private void setImageUserInfo(String url_head, String username, int created_time) {
+    private void setImageUserInfo(String url_head, String username, String created_time) {
         //因为图片来源不定 需要做处理
         if (url_head != null) {
             if (!url_head.contains("http://")) {

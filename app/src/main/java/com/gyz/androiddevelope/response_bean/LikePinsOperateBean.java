@@ -20,24 +20,24 @@ public class LikePinsOperateBean {
     }
 
     public static class LikeBean {
-        private int pin_id;
-        private int user_id;
+        private String pin_id;
+        private String user_id;
         private int seq;
         private int liked_at;
 
-        public int getPin_id() {
+        public String getPin_id() {
             return pin_id;
         }
 
-        public void setPin_id(int pin_id) {
+        public void setPin_id(String pin_id) {
             this.pin_id = pin_id;
         }
 
-        public int getUser_id() {
+        public String getUser_id() {
             return user_id;
         }
 
-        public void setUser_id(int user_id) {
+        public void setUser_id(String user_id) {
             this.user_id = user_id;
         }
 

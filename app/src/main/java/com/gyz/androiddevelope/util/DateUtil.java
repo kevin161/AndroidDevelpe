@@ -36,9 +36,9 @@ public class DateUtil {
      * @param currentTime 当前时间
      * @return
      */
-    public static String getTimeDifference(int httpTime, long currentTime) {
+    public static String getTimeDifference(String httpTime, long currentTime) {
 
-        long hTime = ((long) httpTime) * 1000;
+        long hTime = (Long.parseLong( httpTime)) * 1000;
         long dTime = currentTime - hTime;
         Log.d(TAG,"hTime=" + hTime + " currentTime=" + currentTime + " dTime=" + dTime);
 

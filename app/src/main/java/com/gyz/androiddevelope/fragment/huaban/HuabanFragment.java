@@ -46,7 +46,7 @@ public class HuabanFragment extends BaseRecyclerFragment {
     protected String mAuthorization;
     protected String mKey = "all";//用于联网查询的关键字
     protected static int mLimit = AppContants.LIMIT;
-    private long mMaxId = 0;
+    private String mMaxId ="0";
     private HuabanRecyclerAdapter adapter;
     //与Activity 交互接口 SWIpe 刷新结束后，停止转圈
     private OnSwipeRefreshFragmentListener mRefreshListener;

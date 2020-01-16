@@ -112,7 +112,7 @@ public class ImageDetailActivity extends BaseActivity {
 
         mImageUrl = pinsMainEntity.getFile().getKey();
         mImageType = pinsMainEntity.getFile().getType();
-        mPinsId = String.valueOf(pinsMainEntity.getPin_id());
+        mPinsId = pinsMainEntity.getPin_id();
         isLike = pinsMainEntity.isLiked();
 
         //设置图片宽高比

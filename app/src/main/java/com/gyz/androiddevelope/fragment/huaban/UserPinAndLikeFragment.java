@@ -41,7 +41,7 @@ public class UserPinAndLikeFragment extends BaseRecyclerFragment {
 
     private String userId;
     //最后的id值，为加载下一页用。
-    private long mMaxId;
+    private String mMaxId;
     private boolean isPin;
 
     public static UserPinAndLikeFragment newInstance(String userId, boolean isPin) {

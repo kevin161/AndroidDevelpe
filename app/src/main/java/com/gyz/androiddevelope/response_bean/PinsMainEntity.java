@@ -10,10 +10,10 @@ import android.os.Parcelable;
 public class PinsMainEntity implements Parcelable {
 
 
-    private long pin_id;
-    private long user_id;
-    private long board_id;
-    private long file_id;
+    private String pin_id;
+    private String user_id;
+    private String board_id;
+    private String file_id;
     /**
      * farm : farm1
      * bucket : hbimg
@@ -69,21 +69,6 @@ public class PinsMainEntity implements Parcelable {
 
     private PinsBoardEntity board;
 
-    public void setPin_id(long pin_id) {
-        this.pin_id = pin_id;
-    }
-
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
-    }
-
-    public void setBoard_id(long board_id) {
-        this.board_id = board_id;
-    }
-
-    public void setFile_id(long file_id) {
-        this.file_id = file_id;
-    }
 
     /**
      * user_id : 605533
@@ -149,22 +134,6 @@ public class PinsMainEntity implements Parcelable {
 
     public void setBoard(PinsBoardEntity board) {
         this.board = board;
-    }
-
-    public long getPin_id() {
-        return pin_id;
-    }
-
-    public long getUser_id() {
-        return user_id;
-    }
-
-    public long getBoard_id() {
-        return board_id;
-    }
-
-    public long getFile_id() {
-        return file_id;
     }
 
     public PinsFileEntity getFile() {
@@ -255,6 +224,37 @@ public class PinsMainEntity implements Parcelable {
         return board;
     }
 
+    public String getPin_id() {
+        return pin_id;
+    }
+
+    public void setPin_id(String pin_id) {
+        this.pin_id = pin_id;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getBoard_id() {
+        return board_id;
+    }
+
+    public void setBoard_id(String board_id) {
+        this.board_id = board_id;
+    }
+
+    public String getFile_id() {
+        return file_id;
+    }
+
+    public void setFile_id(String file_id) {
+        this.file_id = file_id;
+    }
 
     @Override
     public int describeContents() {
@@ -263,10 +263,10 @@ public class PinsMainEntity implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(this.pin_id);
-        dest.writeLong(this.user_id);
-        dest.writeLong(this.board_id);
-        dest.writeLong(this.file_id);
+        dest.writeString(this.pin_id);
+        dest.writeString(this.user_id);
+        dest.writeString(this.board_id);
+        dest.writeString(this.file_id);
         dest.writeParcelable(this.file, flags);
         dest.writeInt(this.media_type);
         dest.writeString(this.source);
@@ -291,10 +291,10 @@ public class PinsMainEntity implements Parcelable {
     }
 
     protected PinsMainEntity(Parcel in) {
-        this.pin_id = in.readLong();
-        this.user_id = in.readLong();
-        this.board_id = in.readLong();
-        this.file_id = in.readLong();
+        this.pin_id = in.readString();
+        this.user_id = in.readString();
+        this.board_id = in.readString();
+        this.file_id = in.readString();
         this.file = in.readParcelable(PinsFileEntity.class.getClassLoader());
         this.media_type = in.readInt();
         this.source = in.readString();

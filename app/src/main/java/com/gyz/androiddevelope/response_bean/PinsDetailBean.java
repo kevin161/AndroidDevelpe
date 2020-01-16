@@ -36,10 +36,10 @@ public class PinsDetailBean {
     }
 
     public static class PinBean {
-        private int pin_id;
-        private int user_id;
-        private int board_id;
-        private int file_id;
+        private String pin_id;
+        private String user_id;
+        private String board_id;
+        private String file_id;
         /**
          * farm : farm1
          * bucket : hbimg
@@ -57,14 +57,14 @@ public class PinsDetailBean {
         private String link;
         private String raw_text;
         private TextMetaBean text_meta;
-        private int via;
-        private int via_user_id;
-        private int original;
-        private int created_at;
-        private int like_count;
-        private int comment_count;
-        private int repin_count;
-        private int is_private;
+        private String via;
+        private String via_user_id;
+        private String original;
+        private String created_at;
+        private String like_count;
+        private String comment_count;
+        private String repin_count;
+        private String is_private;
         private String orig_source;
         /**
          * user_id : 13068963
@@ -104,35 +104,35 @@ public class PinsDetailBean {
 
         private List<LikesBean> likes;
 
-        public int getPin_id() {
+        public String getPin_id() {
             return pin_id;
         }
 
-        public void setPin_id(int pin_id) {
+        public void setPin_id(String pin_id) {
             this.pin_id = pin_id;
         }
 
-        public int getUser_id() {
+        public String getUser_id() {
             return user_id;
         }
 
-        public void setUser_id(int user_id) {
+        public void setUser_id(String user_id) {
             this.user_id = user_id;
         }
 
-        public int getBoard_id() {
+        public String getBoard_id() {
             return board_id;
         }
 
-        public void setBoard_id(int board_id) {
+        public void setBoard_id(String board_id) {
             this.board_id = board_id;
         }
 
-        public int getFile_id() {
+        public String getFile_id() {
             return file_id;
         }
 
-        public void setFile_id(int file_id) {
+        public void setFile_id(String file_id) {
             this.file_id = file_id;
         }
 
@@ -184,67 +184,67 @@ public class PinsDetailBean {
             this.text_meta = text_meta;
         }
 
-        public int getVia() {
+        public String getVia() {
             return via;
         }
 
-        public void setVia(int via) {
+        public void setVia(String via) {
             this.via = via;
         }
 
-        public int getVia_user_id() {
+        public String getVia_user_id() {
             return via_user_id;
         }
 
-        public void setVia_user_id(int via_user_id) {
+        public void setVia_user_id(String via_user_id) {
             this.via_user_id = via_user_id;
         }
 
-        public int getOriginal() {
+        public String getOriginal() {
             return original;
         }
 
-        public void setOriginal(int original) {
+        public void setOriginal(String original) {
             this.original = original;
         }
 
-        public int getCreated_at() {
+        public String getCreated_at() {
             return created_at;
         }
 
-        public void setCreated_at(int created_at) {
+        public void setCreated_at(String created_at) {
             this.created_at = created_at;
         }
 
-        public int getLike_count() {
+        public String getLike_count() {
             return like_count;
         }
 
-        public void setLike_count(int like_count) {
+        public void setLike_count(String like_count) {
             this.like_count = like_count;
         }
 
-        public int getComment_count() {
+        public String getComment_count() {
             return comment_count;
         }
 
-        public void setComment_count(int comment_count) {
+        public void setComment_count(String comment_count) {
             this.comment_count = comment_count;
         }
 
-        public int getRepin_count() {
+        public String getRepin_count() {
             return repin_count;
         }
 
-        public void setRepin_count(int repin_count) {
+        public void setRepin_count(String repin_count) {
             this.repin_count = repin_count;
         }
 
-        public int getIs_private() {
+        public String getIs_private() {
             return is_private;
         }
 
-        public void setIs_private(int is_private) {
+        public void setIs_private(String is_private) {
             this.is_private = is_private;
         }
 
@@ -429,11 +429,11 @@ public class PinsDetailBean {
             private int created_at;
             private Avatar avatar;
 
-            public void setAvatar(Avatar avatar){
+            public void setAvatar(Avatar avatar) {
                 this.avatar = avatar;
             }
 
-            public Avatar getAvatar(){
+            public Avatar getAvatar() {
                 return avatar;
             }
 
@@ -618,10 +618,10 @@ public class PinsDetailBean {
             }
 
             public static class PinsBean {
-                private int pin_id;
-                private int user_id;
-                private int board_id;
-                private int file_id;
+                private String pin_id;
+                private String user_id;
+                private String board_id;
+                private String file_id;
                 /**
                  * farm : farm1
                  * bucket : hbimg
@@ -638,45 +638,45 @@ public class PinsDetailBean {
                 private Object link;
                 private String raw_text;
                 private TextMetaBean text_meta;
-                private int via;
-                private int via_user_id;
-                private int original;
-                private int created_at;
-                private int like_count;
-                private int comment_count;
-                private int repin_count;
-                private int is_private;
+                private String via;
+                private String via_user_id;
+                private String original;
+                private String created_at;
+                private String like_count;
+                private String comment_count;
+                private String repin_count;
+                private String is_private;
                 private Object orig_source;
 
-                public int getPin_id() {
+                public String getPin_id() {
                     return pin_id;
                 }
 
-                public void setPin_id(int pin_id) {
+                public void setPin_id(String pin_id) {
                     this.pin_id = pin_id;
                 }
 
-                public int getUser_id() {
+                public String getUser_id() {
                     return user_id;
                 }
 
-                public void setUser_id(int user_id) {
+                public void setUser_id(String user_id) {
                     this.user_id = user_id;
                 }
 
-                public int getBoard_id() {
+                public String getBoard_id() {
                     return board_id;
                 }
 
-                public void setBoard_id(int board_id) {
+                public void setBoard_id(String board_id) {
                     this.board_id = board_id;
                 }
 
-                public int getFile_id() {
+                public String getFile_id() {
                     return file_id;
                 }
 
-                public void setFile_id(int file_id) {
+                public void setFile_id(String file_id) {
                     this.file_id = file_id;
                 }
 
@@ -728,67 +728,68 @@ public class PinsDetailBean {
                     this.text_meta = text_meta;
                 }
 
-                public int getVia() {
+                public String getVia() {
                     return via;
                 }
 
-                public void setVia(int via) {
-                    this.via = via;
-                }
-
-                public int getVia_user_id() {
+                public String getVia_user_id() {
                     return via_user_id;
                 }
 
-                public void setVia_user_id(int via_user_id) {
+                public void setVia(String via) {
+                    this.via = via;
+                }
+
+
+                public void setVia_user_id(String via_user_id) {
                     this.via_user_id = via_user_id;
                 }
 
-                public int getOriginal() {
+                public String getOriginal() {
                     return original;
                 }
 
-                public void setOriginal(int original) {
+                public void setOriginal(String original) {
                     this.original = original;
                 }
 
-                public int getCreated_at() {
+                public String getCreated_at() {
                     return created_at;
                 }
 
-                public void setCreated_at(int created_at) {
+                public void setCreated_at(String created_at) {
                     this.created_at = created_at;
                 }
 
-                public int getLike_count() {
+                public String getLike_count() {
                     return like_count;
                 }
 
-                public void setLike_count(int like_count) {
+                public void setLike_count(String like_count) {
                     this.like_count = like_count;
                 }
 
-                public int getComment_count() {
+                public String getComment_count() {
                     return comment_count;
                 }
 
-                public void setComment_count(int comment_count) {
+                public void setComment_count(String comment_count) {
                     this.comment_count = comment_count;
                 }
 
-                public int getRepin_count() {
+                public String getRepin_count() {
                     return repin_count;
                 }
 
-                public void setRepin_count(int repin_count) {
+                public void setRepin_count(String repin_count) {
                     this.repin_count = repin_count;
                 }
 
-                public int getIs_private() {
+                public String getIs_private() {
                     return is_private;
                 }
 
-                public void setIs_private(int is_private) {
+                public void setIs_private(String is_private) {
                     this.is_private = is_private;
                 }
 
@@ -910,20 +911,20 @@ public class PinsDetailBean {
                 this.created_at = created_at;
             }
 
-            public void setAvatar(Avatar avatar){
+            public void setAvatar(Avatar avatar) {
                 this.avatar = avatar;
             }
 
-            public Avatar getAvatar(){
+            public Avatar getAvatar() {
                 return avatar;
             }
         }
 
         public static class ViaPinBean {
-            private int pin_id;
-            private int user_id;
-            private int board_id;
-            private int file_id;
+            private String pin_id;
+            private String user_id;
+            private String board_id;
+            private String file_id;
             /**
              * farm : farm1
              * bucket : hbimg
@@ -941,8 +942,8 @@ public class PinsDetailBean {
             private String link;
             private String raw_text;
             private TextMetaBean text_meta;
-            private int via;
-            private int via_user_id;
+            private String via;
+            private String via_user_id;
             private int original;
             private int created_at;
             private int like_count;
@@ -969,35 +970,35 @@ public class PinsDetailBean {
 
             private BoardBean board;
 
-            public int getPin_id() {
+            public String getPin_id() {
                 return pin_id;
             }
 
-            public void setPin_id(int pin_id) {
+            public void setPin_id(String pin_id) {
                 this.pin_id = pin_id;
             }
 
-            public int getUser_id() {
+            public String getUser_id() {
                 return user_id;
             }
 
-            public void setUser_id(int user_id) {
+            public void setUser_id(String user_id) {
                 this.user_id = user_id;
             }
 
-            public int getBoard_id() {
+            public String getBoard_id() {
                 return board_id;
             }
 
-            public void setBoard_id(int board_id) {
+            public void setBoard_id(String board_id) {
                 this.board_id = board_id;
             }
 
-            public int getFile_id() {
+            public String getFile_id() {
                 return file_id;
             }
 
-            public void setFile_id(int file_id) {
+            public void setFile_id(String file_id) {
                 this.file_id = file_id;
             }
 
@@ -1049,19 +1050,20 @@ public class PinsDetailBean {
                 this.text_meta = text_meta;
             }
 
-            public int getVia() {
+            public String getVia() {
                 return via;
             }
 
-            public void setVia(int via) {
-                this.via = via;
-            }
-
-            public int getVia_user_id() {
+            public String getVia_user_id() {
                 return via_user_id;
             }
 
-            public void setVia_user_id(int via_user_id) {
+            public void setVia(String via) {
+                this.via = via;
+            }
+
+
+            public void setVia_user_id(String via_user_id) {
                 this.via_user_id = via_user_id;
             }
 
@@ -1373,10 +1375,10 @@ public class PinsDetailBean {
         }
 
         public static class OriginalPinBean {
-            private int pin_id;
-            private int user_id;
-            private int board_id;
-            private int file_id;
+            private String pin_id;
+            private String user_id;
+            private String board_id;
+            private String file_id;
             /**
              * farm : farm1
              * bucket : hbimg
@@ -1393,8 +1395,8 @@ public class PinsDetailBean {
             private String link;
             private String raw_text;
             private TextMetaBean text_meta;
-            private int via;
-            private int via_user_id;
+            private String via;
+            private String via_user_id;
             private Object original;
             private int created_at;
             private int like_count;
@@ -1430,35 +1432,35 @@ public class PinsDetailBean {
 
             private BoardBean board;
 
-            public int getPin_id() {
+            public String getPin_id() {
                 return pin_id;
             }
 
-            public void setPin_id(int pin_id) {
+            public void setPin_id(String pin_id) {
                 this.pin_id = pin_id;
             }
 
-            public int getUser_id() {
+            public String getUser_id() {
                 return user_id;
             }
 
-            public void setUser_id(int user_id) {
+            public void setUser_id(String user_id) {
                 this.user_id = user_id;
             }
 
-            public int getBoard_id() {
+            public String getBoard_id() {
                 return board_id;
             }
 
-            public void setBoard_id(int board_id) {
+            public void setBoard_id(String board_id) {
                 this.board_id = board_id;
             }
 
-            public int getFile_id() {
+            public String getFile_id() {
                 return file_id;
             }
 
-            public void setFile_id(int file_id) {
+            public void setFile_id(String file_id) {
                 this.file_id = file_id;
             }
 
@@ -1510,19 +1512,20 @@ public class PinsDetailBean {
                 this.text_meta = text_meta;
             }
 
-            public int getVia() {
-                return via;
-            }
 
-            public void setVia(int via) {
+            public void setVia(String via) {
                 this.via = via;
             }
 
-            public int getVia_user_id() {
+            public String getVia() {
+                return via;
+            }
+
+            public String getVia_user_id() {
                 return via_user_id;
             }
 
-            public void setVia_user_id(int via_user_id) {
+            public void setVia_user_id(String via_user_id) {
                 this.via_user_id = via_user_id;
             }
 
@@ -1706,11 +1709,11 @@ public class PinsDetailBean {
                     this.created_at = created_at;
                 }
 
-                public void setAvatar(Avatar avatar){
+                public void setAvatar(Avatar avatar) {
                     this.avatar = avatar;
                 }
 
-                public Avatar getAvatar(){
+                public Avatar getAvatar() {
                     return avatar;
                 }
             }
@@ -1846,10 +1849,10 @@ public class PinsDetailBean {
         }
 
         public static class RepinsBean {
-            private int pin_id;
-            private int user_id;
-            private int board_id;
-            private int file_id;
+            private String pin_id;
+            private String user_id;
+            private String board_id;
+            private String file_id;
             /**
              * farm : farm1
              * bucket : hbimg
@@ -1867,8 +1870,8 @@ public class PinsDetailBean {
             private String link;
             private String raw_text;
             private TextMetaBean text_meta;
-            private int via;
-            private int via_user_id;
+            private String via;
+            private String via_user_id;
             private int original;
             private int created_at;
             private int like_count;
@@ -1905,35 +1908,35 @@ public class PinsDetailBean {
 
             private BoardBean board;
 
-            public int getPin_id() {
+            public String getPin_id() {
                 return pin_id;
             }
 
-            public void setPin_id(int pin_id) {
+            public void setPin_id(String pin_id) {
                 this.pin_id = pin_id;
             }
 
-            public int getUser_id() {
+            public String getUser_id() {
                 return user_id;
             }
 
-            public void setUser_id(int user_id) {
+            public void setUser_id(String user_id) {
                 this.user_id = user_id;
             }
 
-            public int getBoard_id() {
+            public String getBoard_id() {
                 return board_id;
             }
 
-            public void setBoard_id(int board_id) {
+            public void setBoard_id(String board_id) {
                 this.board_id = board_id;
             }
 
-            public int getFile_id() {
+            public String getFile_id() {
                 return file_id;
             }
 
-            public void setFile_id(int file_id) {
+            public void setFile_id(String file_id) {
                 this.file_id = file_id;
             }
 
@@ -1985,19 +1988,19 @@ public class PinsDetailBean {
                 this.text_meta = text_meta;
             }
 
-            public int getVia() {
-                return via;
-            }
-
-            public void setVia(int via) {
+            public void setVia(String via) {
                 this.via = via;
             }
 
-            public int getVia_user_id() {
+            public String getVia() {
+                return via;
+            }
+
+            public String getVia_user_id() {
                 return via_user_id;
             }
 
-            public void setVia_user_id(int via_user_id) {
+            public void setVia_user_id(String via_user_id) {
                 this.via_user_id = via_user_id;
             }
 
@@ -2190,11 +2193,11 @@ public class PinsDetailBean {
                     this.created_at = created_at;
                 }
 
-                public void setAvatar(Avatar avatar){
+                public void setAvatar(Avatar avatar) {
                     this.avatar = avatar;
                 }
 
-                public Avatar getAvatar(){
+                public Avatar getAvatar() {
                     return avatar;
                 }
             }
@@ -2359,10 +2362,10 @@ public class PinsDetailBean {
                 }
 
                 public static class PinsBean {
-                    private int pin_id;
-                    private int user_id;
-                    private int board_id;
-                    private int file_id;
+                    private String pin_id;
+                    private String user_id;
+                    private String board_id;
+                    private String file_id;
                     /**
                      * farm : farm1
                      * bucket : hbimg
@@ -2379,8 +2382,8 @@ public class PinsDetailBean {
                     private String link;
                     private String raw_text;
                     private TextMetaBean text_meta;
-                    private int via;
-                    private int via_user_id;
+                    private String via;
+                    private String via_user_id;
                     private int original;
                     private int created_at;
                     private int like_count;
@@ -2389,35 +2392,35 @@ public class PinsDetailBean {
                     private int is_private;
                     private Object orig_source;
 
-                    public int getPin_id() {
+                    public String getPin_id() {
                         return pin_id;
                     }
 
-                    public void setPin_id(int pin_id) {
+                    public void setPin_id(String pin_id) {
                         this.pin_id = pin_id;
                     }
 
-                    public int getUser_id() {
+                    public String getUser_id() {
                         return user_id;
                     }
 
-                    public void setUser_id(int user_id) {
+                    public void setUser_id(String user_id) {
                         this.user_id = user_id;
                     }
 
-                    public int getBoard_id() {
+                    public String getBoard_id() {
                         return board_id;
                     }
 
-                    public void setBoard_id(int board_id) {
+                    public void setBoard_id(String board_id) {
                         this.board_id = board_id;
                     }
 
-                    public int getFile_id() {
+                    public String getFile_id() {
                         return file_id;
                     }
 
-                    public void setFile_id(int file_id) {
+                    public void setFile_id(String file_id) {
                         this.file_id = file_id;
                     }
 
@@ -2469,19 +2472,20 @@ public class PinsDetailBean {
                         this.text_meta = text_meta;
                     }
 
-                    public int getVia() {
+                    public String getVia() {
                         return via;
                     }
 
-                    public void setVia(int via) {
-                        this.via = via;
-                    }
-
-                    public int getVia_user_id() {
+                    public String getVia_user_id() {
                         return via_user_id;
                     }
 
-                    public void setVia_user_id(int via_user_id) {
+                    public void setVia(String via) {
+                        this.via = via;
+                    }
+
+
+                    public void setVia_user_id(String via_user_id) {
                         this.via_user_id = via_user_id;
                     }
 
@@ -2653,11 +2657,11 @@ public class PinsDetailBean {
                 this.created_at = created_at;
             }
 
-            public void setAvatar(Avatar avatar){
+            public void setAvatar(Avatar avatar) {
                 this.avatar = avatar;
             }
 
-            public Avatar getAvatar(){
+            public Avatar getAvatar() {
                 return avatar;
             }
 

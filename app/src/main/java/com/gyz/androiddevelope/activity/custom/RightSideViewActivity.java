@@ -151,9 +151,9 @@ public class RightSideViewActivity extends AppCompatActivity {
         @Override
         public int compare(CityInfo cityInfo, CityInfo t1) {
             if (cityInfo.getLetter().equals("@") || t1.getLetter().equals("#")) {
-                return -1;
+                return 1;
             } else if (cityInfo.getLetter().equals("#") || t1.getLetter().equals("@")) {
-                return -1;
+                return 1;
             }
             return cityInfo.getLetter().compareTo(t1.getLetter());
         }
