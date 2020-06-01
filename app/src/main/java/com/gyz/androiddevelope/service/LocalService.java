@@ -57,7 +57,7 @@ public class LocalService extends Service {
                 .setWhen( System.currentTimeMillis());
 
         //把service设置为前台运行，避免手机系统自动杀掉改服务。
-        startForeground(startId, builder.build());
+//        startForeground(startId, builder.build());
         return START_STICKY;
     }
 
