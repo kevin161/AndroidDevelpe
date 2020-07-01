@@ -30,8 +30,8 @@ public class HomeNewsAdapter extends BaseRecyclerAdapter<Story> implements ItemT
     private Context context;
     private String str;
     private StartDragListener startDragListener;
-    public HomeNewsAdapter(Context context , StartDragListener listener)
-    {
+
+    public HomeNewsAdapter(Context context, StartDragListener listener) {
         this.startDragListener = listener;
         this.context = context;
     }
@@ -65,14 +65,16 @@ public class HomeNewsAdapter extends BaseRecyclerAdapter<Story> implements ItemT
             viewHolder.img.setVisibility(View.VISIBLE);
             viewHolder.txtTitle.setVisibility(View.VISIBLE);
             viewHolder.txtTopic.setVisibility(View.GONE);
-            ImageUtils.loadImageByPicasso(context,story.images.get(0),viewHolder.img);
+            if (story.images != null && story.images.size() >= 1) {
+                ImageUtils.loadImageByPicasso(context, story.images.get(0), viewHolder.img);
+            }
 //            Picasso.with(context).load(story.images.get(0)).into(viewHolder.img);
             viewHolder.txtTitle.setText(story.title);
 
             viewHolder.img.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    if (event.getAction() == MotionEvent.ACTION_DOWN){
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         //传递触摸情况给外部
                         startDragListener.onStartDrag(viewHolder);
                     }
@@ -87,14 +89,14 @@ public class HomeNewsAdapter extends BaseRecyclerAdapter<Story> implements ItemT
     public boolean onItemMove(int form, int to) {
 
         //数据交换、刷新
-        Collections.swap(mDatas,form,to);
-        notifyItemMoved(form,to);
+        Collections.swap(mDatas, form, to);
+        notifyItemMoved(form, to);
         return true;
     }
 
     @Override
     public void onItemDrag(int position) {
-            mDatas.remove(position);
+        mDatas.remove(position);
         notifyItemRemoved(position);
     }
 

@@ -39,8 +39,6 @@ public class NestedScrollViewActivity extends BaseActivity {
     protected void initVariables() {
 
 
-
-
     }
 
     @Override
@@ -69,6 +67,7 @@ public class NestedScrollViewActivity extends BaseActivity {
         List<InfoBean> data = getCommentData();
         RvAdapter rvAdapter = new RvAdapter(this, data);
         rvList.setAdapter(rvAdapter);
+
     }
 
 
